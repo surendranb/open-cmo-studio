@@ -38,15 +38,18 @@ echo -e "  ${GREEN}✓${NC} uv ready: $(uv --version)"
 # 2. Arize Phoenix (OTel & Tracing on Port 6006)
 # ------------------------------------------------------------------------------
 echo -e "${BOLD}[2/5] Setting up Arize Phoenix (Port 6006)...${NC}"
-if ! uv tool list 2>/dev/null | grep -q "arize-phoenix"; then
-  echo "Installing arize-phoenix via uv..."
-  uv tool install arize-phoenix || pip3 install --user arize-phoenix
-fi
+if curl -s -o /dev/null -w "%{http_code}" http://localhost:6006 2>/dev/null | grep -qE "200|302|404"; then
+  echo -e "  ${GREEN}✓${NC} Phoenix is already active on port 6006 (preserving existing daemon)."
+else
+  if ! uv tool list 2>/dev/null | grep -q "arize-phoenix"; then
+    echo "Installing arize-phoenix via uv..."
+    uv tool install arize-phoenix || pip3 install --user arize-phoenix
+  fi
 
-PHOENIX_BIN="$(which phoenix 2>/dev/null || echo "${HOME}/.local/bin/phoenix")"
-PHOENIX_PLIST="${LAUNCH_AGENTS_DIR}/com.opencmostudio.phoenix.plist"
+  PHOENIX_BIN="$(which phoenix 2>/dev/null || echo "${HOME}/.local/bin/phoenix")"
+  PHOENIX_PLIST="${LAUNCH_AGENTS_DIR}/com.opencmostudio.phoenix.plist"
 
-cat <<EOF > "${PHOENIX_PLIST}"
+  cat <<EOF > "${PHOENIX_PLIST}"
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -72,17 +75,21 @@ cat <<EOF > "${PHOENIX_PLIST}"
 </plist>
 EOF
 
-launchctl unload "${PHOENIX_PLIST}" 2>/dev/null || true
-launchctl load "${PHOENIX_PLIST}"
-echo -e "  ${GREEN}✓${NC} Phoenix daemon registered via launchd on port 6006."
+  launchctl unload "${PHOENIX_PLIST}" 2>/dev/null || true
+  launchctl load "${PHOENIX_PLIST}"
+  echo -e "  ${GREEN}✓${NC} Phoenix daemon registered via launchd on port 6006."
+fi
 
 # ------------------------------------------------------------------------------
 # 3. Vectorize Hindsight (Memory Engine on Port 8888)
 # ------------------------------------------------------------------------------
 echo -e "${BOLD}[3/5] Setting up Vectorize Hindsight (Port 8888)...${NC}"
-HINDSIGHT_PLIST="${LAUNCH_AGENTS_DIR}/com.opencmostudio.hindsight.plist"
+if curl -s -o /dev/null -w "%{http_code}" http://localhost:8888 2>/dev/null | grep -qE "200|302|404"; then
+  echo -e "  ${GREEN}✓${NC} Hindsight is already active on port 8888 (preserving existing daemon)."
+else
+  HINDSIGHT_PLIST="${LAUNCH_AGENTS_DIR}/com.opencmostudio.hindsight.plist"
 
-cat <<EOF > "${HINDSIGHT_PLIST}"
+  cat <<EOF > "${HINDSIGHT_PLIST}"
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -109,14 +116,14 @@ cat <<EOF > "${HINDSIGHT_PLIST}"
 </plist>
 EOF
 
-# If native hindsight binary exists, use it instead of fallback
-if command -v hindsight >/dev/null 2>&1; then
-  sed -i '' "s|python3.*8888|$(which hindsight) --port 8888|g" "${HINDSIGHT_PLIST}"
-fi
+  if command -v hindsight >/dev/null 2>&1; then
+    sed -i '' "s|python3.*8888|$(which hindsight) --port 8888|g" "${HINDSIGHT_PLIST}"
+  fi
 
-launchctl unload "${HINDSIGHT_PLIST}" 2>/dev/null || true
-launchctl load "${HINDSIGHT_PLIST}"
-echo -e "  ${GREEN}✓${NC} Hindsight daemon registered via launchd on port 8888."
+  launchctl unload "${HINDSIGHT_PLIST}" 2>/dev/null || true
+  launchctl load "${HINDSIGHT_PLIST}"
+  echo -e "  ${GREEN}✓${NC} Hindsight daemon registered via launchd on port 8888."
+fi
 
 # ------------------------------------------------------------------------------
 # 4. Workspace Scaffolding & App Integration
