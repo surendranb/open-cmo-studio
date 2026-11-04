@@ -1,12 +1,16 @@
-# Audience — who we build for
+# Target Audience & Channel Map
 
-last-verified: never (skeleton)
+## Ideal Customer Profile (ICP)
+* **Primary**: Platform Engineers, Staff Site Reliability Engineers (SREs), DevOps Leads.
+* **Secondary**: Technical Co-founders and VP Engineering at seed-to-Series B B2B SaaS companies.
+* **Team Profile**: Managing 5+ Kubernetes clusters, spending >$5,000/mo on cloud compute.
 
-## Working hypothesis (Inference)
-- Builders and AI practitioners who learn by shipping; people who want to see systems, not takes.
-- Channels: X/LinkedIn (build-in-public), Substack #BuildwithAI (launched 2026-08-29), GitHub (surendranb), organic search to product pages.
-
-## Questions to answer from data
-- [ ] What does GA4/GSC say about who actually arrives, from where, to what? (data-analyst: once builditwithai.xyz is wired)
-- [ ] Which products draw which audience segments?
-- [ ] What does the Substack early data show?
+## Core Growth Channels
+1. **Developer Communities (Social Listener Focus)**:
+   * Subreddits: `r/devops`, `r/kubernetes`, `r/aws`, `r/cloudcomputing`, `r/SideProject`.
+   * Hacker News: "Show HN" launches and discussions on Kubernetes optimization and cloud costs.
+   * Product Hunt: Developer tools category.
+2. **Search & Documentation (SEO/AEO)**:
+   * Target technical queries: "Kubernetes CPU limit best practices", "reduce AWS NAT gateway costs", "eBPF cost monitoring".
+3. **Open Source Ecosystem**:
+   * GitHub repository stars, issue discussions, and developer documentation.

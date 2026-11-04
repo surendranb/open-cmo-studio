@@ -18,10 +18,10 @@ Dimension 3: Respectful <--------------->  Irreverent
 Dimension 4: Matter-of-Fact <----------->  Enthusiastic
 ```
 
-### House Tone Anchors:
-- **BuildItWithAI / Studio-CMO:** Serious (technical), Casual/Direct, Respectful, Matter-of-Fact (zero hype).
-- **Atlan:** Professional/Builder, Confident, Collaborative, Energetic/Human.
-- **Consumer Viral App:** Playful, Hyper-Casual, Irreverent, Enthusiastic.
+### Tone Archetypes:
+- **Developer Tools / Infrastructure:** Serious (technical), Casual/Direct, Respectful, Matter-of-Fact (zero hype).
+- **Enterprise SaaS:** Professional/Builder, Confident, Collaborative, Human.
+- **Consumer / Community:** Playful, Casual, Community-Driven, Enthusiastic.
 
 ## The "We Are X, But Not Y" Framework
 

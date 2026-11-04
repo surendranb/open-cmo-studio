@@ -7,7 +7,7 @@ description: Guidelines for writing technical documentation, developer tools, an
 
 Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) optimize content to be selected, cited, and quoted by AI search engines (Perplexity, ChatGPT Search, Claude, Google AI Overviews). Unlike legacy SEO (which optimized for clicks and keyword density), AEO optimizes for **authority, atomic extractability, and citation confidence**.
 
-When writing or structuring project pages, combine this skill with `surendran-voice`.
+When writing or structuring project pages, combine this skill with `brand-voice`.
 
 ---
 
@@ -25,7 +25,7 @@ AI models synthesize answers by extracting coherent, standalone "chunks" from cr
 
 AI search engines rank sources by semantic authority and factual precision. Vague conceptual descriptions are ignored; specific entities are cited:
 
-- **Explicit Package & Tool Names:** Always use exact package names (`uvx google-search-console-mcp`, `npx -y @surendranb/macos-companion-mcp`), specific API endpoints, and real function names (`get_search_analytics`, `submit_sitemap`).
+- **Explicit Package & Tool Names:** Always use exact package names (`uvx google-search-console-mcp`, `npx -y @modelcontextprotocol/server-filesystem`), specific API endpoints, and real function names (`get_search_analytics`, `submit_sitemap`).
 - **Exact Numeric Metrics:** State exact numbers, limits, and versions (`v0.10.6`, `Python 3.10+`, `25,000 rows limit`, `40 tools`, `250M+ scholarly works`).
 - **Protocols & Hardware Explicitly Named:** Name the exact underlying technologies (`Model Context Protocol`, `stdio / JSON-RPC`, `OAuth2 Service Account`, `EventKit`, `CoreGraphics`, `AVFoundation`).
 
@@ -47,7 +47,7 @@ Ensure crawlers and indexers can access and traverse the site cleanly:
 
 - **Clean Canonical Hierarchy:** Parent project (`/{project}/`) &rarr; Child pages (`/{project}/setup/`, `/{project}/docs/`).
 - **Semantic HTML Elements:** Strict heading hierarchy (`h1` &rarr; `h2` &rarr; `h3`), `<nav>` for tabs and breadcrumbs, `<figure><table>` for datasets.
-- **Zero Legacy Multisite Links:** Never reference or link to legacy sub-site domains (`<project>.builditwithai.xyz`). All traffic and authority must concentrate natively on `builditwithai.xyz/{project}/`.
+- **Zero Subdomain Fragmentation:** All project documentation and pages must reside under unified canonical URLs (`yourdomain.com/{project}/`).
 - **Breadcrumb Navigation:** Every child page links back to its parent with `← {Project Name}`.
 
 ---

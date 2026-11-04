@@ -1,54 +1,62 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "meta-llama/llama-3.3-70b-instruct",
-  "experimental": {
-    "openTelemetry": true
-  },
-  "plugin": [
-    "opencode-scheduler",
-    [
-      "@vectorize-io/opencode-hindsight",
-      {
-        "hindsightApiUrl": "http://127.0.0.1:8888",
-        "bankId": "cmo-studio",
-        "autoRecall": true,
-        "autoRetain": true,
-        "recallBudget": "mid"
-      }
-    ]
+  "name": "open-cmo-studio-template",
+  "instructions": [
+    "AGENTS.md"
   ],
-  "skills": {
-    "paths": [
-      "./.opencode/skills"
-    ]
-  },
-  "permission": {
-    "external_directory": "allow",
-    "bash": {
-      "*": "allow",
-      "git push*": "deny",
-      "sudo*": "deny"
+  "agent": {
+    "cmo": {
+      "mode": "primary",
+      "prompt": "{file:.opencode/agent/cmo.md}"
     },
-    "webfetch": "allow"
+    "data-analyst": {
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/data-analyst.md}"
+    },
+    "social-listener": {
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/social-listener.md}"
+    },
+    "content-writer": {
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/content-writer.md}"
+    },
+    "designer": {
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/designer.md}"
+    },
+    "devops-engineer": {
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/devops-engineer.md}"
+    },
+    "distiller": {
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/distiller.md}"
+    }
   },
   "mcp": {
-    "reddit-marketing": {
+    "google-analytics": {
       "type": "local",
       "command": [
-        "node",
-        "./.opencode/servers/reddit-server.mjs"
+        "uvx",
+        "google-analytics-mcp"
       ],
-      "enabled": true
-    },
-    "google-analytics": {
-      "type": "remote",
-      "url": "https://ga4mcp.builditwithai.xyz/mcp",
-      "enabled": true
+      "enabled": false,
+      "environment": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "{env:GOOGLE_APPLICATION_CREDENTIALS}",
+        "GA4_PROPERTY_ID": "{env:GA4_PROPERTY_ID}"
+      }
     },
     "google-search-console": {
-      "type": "remote",
-      "url": "https://gscmcp.builditwithai.xyz/mcp",
-      "enabled": true
+      "type": "local",
+      "command": [
+        "uvx",
+        "google-search-console-mcp"
+      ],
+      "enabled": false,
+      "environment": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "{env:GOOGLE_APPLICATION_CREDENTIALS}"
+      }
     }
   }
 }

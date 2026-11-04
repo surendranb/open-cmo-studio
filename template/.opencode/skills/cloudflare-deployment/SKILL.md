@@ -15,7 +15,7 @@ Standards for deploying web frontends and APIs to Cloudflare Pages and Workers.
 - **Git-Connected Deployments**: Ensure the Cloudflare GitHub App has repository permissions if connecting private repos.
 
 ## 2. Telemetry & Routing Preservation
-- **Non-Interference Rule**: Never disrupt existing Cloudflare routes on `builditwithai.xyz` (e.g. `/wp-json/agent-metrics/`, `/mcp`). Sudden drops in MCP telemetry are often caused by misconfigured routing rules or custom domain overrides.
+- **Non-Interference Rule**: Never disrupt existing Cloudflare routes or API subpaths. Sudden drops in telemetry or webhook delivery are often caused by misconfigured routing rules or custom domain overrides.
 - **Cache Rules**: For static SSG catalogs, configure edge cache TTLs appropriately, but ensure purge webhooks or cache-busting hashes are used on daily re-renders.
 
 ## 3. D1 Database Bindings

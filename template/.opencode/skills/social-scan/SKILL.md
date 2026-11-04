@@ -11,7 +11,7 @@ The daily social listening and market perception radar for CMO Studio. It is NOT
 1. **Dynamic Entity Grounding:**
    - Reads `company_name`, `target_website`, and `company_slug` from `workspace_settings`.
    - Reads registered competitors directly from the `competitors` table in `db/state.sqlite` via `storage_list_competitors`.
-   - Reads `memory/ontology/portfolio.yaml` for domain vocabulary, pain patterns, and community channels across the 37 live projects on `builditwithai.xyz`.
+   - Reads `memory/ontology/products.yaml` for domain vocabulary, pain patterns, and community channels across active products.
    - Reads ICP pain points and core narrative from `company_dossiers` (`03-messaging-and-positioning.md` and `04-icp-and-personas.md`).
 2. **Packaged Skills & MCP Tools:**
    - MCPs: `reddit-marketing` (`reddit_scan_subreddit`, `reddit_search`, `reddit_social_sweep`), `parallel-search`, and `studio-storage`.

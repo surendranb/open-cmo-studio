@@ -127,6 +127,13 @@ if [ ! -d "${TARGET_DIR}" ]; then
   if [ -d "${SCRIPT_DIR}/template" ]; then
     cp -R "${SCRIPT_DIR}/template/"* "${TARGET_DIR}/"
     cp -R "${SCRIPT_DIR}/template/.opencode" "${TARGET_DIR}/" 2>/dev/null || true
+  else
+    echo "Cloning workspace template from GitHub..."
+    TMP_CLONE="/tmp/open-cmo-studio-template-$$"
+    git clone --depth 1 https://github.com/surendranb/open-cmo-studio.git "${TMP_CLONE}"
+    cp -R "${TMP_CLONE}/template/"* "${TARGET_DIR}/"
+    cp -R "${TMP_CLONE}/template/.opencode" "${TARGET_DIR}/" 2>/dev/null || true
+    rm -rf "${TMP_CLONE}"
   fi
   (cd "${TARGET_DIR}" && git init -q && git add -A && git commit -q -m "chore: initial Open CMO Studio workspace" || true)
   echo -e "  ${GREEN}✓${NC} Workspace created at ${TARGET_DIR}"

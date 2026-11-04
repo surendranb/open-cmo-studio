@@ -15,7 +15,7 @@ description: Use when the principal asks about AI crawlers, bot visibility, llms
 - data-analyst:
   - agent-metrics: `agent_activity_summary` 30 days (llms.txt downloads, markdown fetches, WebMCP executions — THE depth metrics), `bot_summary` + `bot_breakdown` by category, `top_pages` limit 20
   - agent-metrics: `log_status` first — parse quality gates every number below it
-- research-analyst (parallel): fetch `https://builditwithai.xyz/llms.txt` and `https://builditwithai.xyz/robots.txt` — exists? valid? which products listed? Also spot-check one product subsite for llms.txt.
+- research-analyst (parallel): fetch configured site `llms.txt` and `robots.txt` — exists? valid? which products listed? Also spot-check product subsites for llms.txt.
 - mcp-engineer: ONLY if depth metrics are zero again — diagnose whether llms.txt/markdown routes exist server-side.
 
 ## Output contract

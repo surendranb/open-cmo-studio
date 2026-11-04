@@ -17,20 +17,24 @@ description: Use when the principal wants to announce studio work on X or Linked
 2. content-writer: X main post (results-first, ≤280 chars, no links, no hashtags) + first reply (link + how-to-test) + optional second reply (honest caveats); LinkedIn carousel script 8-10 slides, hook = claim not announcement, first-2-lines <210 chars
 3. designer: creatives as HTML → Playwright renders — X cards (1200×675 PNG) + LinkedIn carousel as ONE assembled PDF (8-10 pages, 1080×1350) — house palette only (cream #fef6e4, navy #001858, pink #f582ae, teal #8bd3dd), ≤7 words per slide, caption sets up / image pays off
 4. data-analyst: T+1 and T+7 performance harvest. X via studio browser-profile session if live (check cookies first; 401 on 2026-09-14 = expired — report blocked, never re-auth with anyone else's credentials); LinkedIn has NO session — public metrics only (reactions/comments/reposts visible, impressions need his screenshots). Per post: X analytics (impressions, replies, reposts, likes) and LinkedIn per-post analytics incl. per-slide views on document posts. Read-only, two touches per post, no engagement actions. Session expired → `blocked: session expired — re-login needed`. Results → `memory/briefs/<date>-post-performance.md`, then cmo runs `python3 social/ingest.py metrics --post-id <id> --days <n> ...` and regenerates `python3 social/dashboard.py` (publish-time: `ingest.py post ...`)
-5. reviewer: binary rubric on every draft before Surendran sees anything
-6. cmo integrates → Surendran publishes and owns the first hour of replies
+5. reviewer: binary rubric on every draft before the Principal sees anything
+6. cmo integrates → Principal publishes and owns the first hour of replies
 
-## Designated browser (studio standard, 2026-09-14)
-Headless browsing can't hold logins — the principal logs in once, agents reuse after. THE browser: Chrome Dev + profile `/Users/surendran/.config/cmo-studio/browser-profile` (same profile the Playwright MCP browser drives). X session live there as @surendranb (verified 2026-09-14); LinkedIn pending his one-time login. Recipe (run ONLY when no agent browsing is active — Chrome locks the profile): quit Chrome Dev fully, run `/Applications/Google\ Chrome\ Dev.app/Contents/MacOS/Google\ Chrome\ Dev --user-data-dir=/Users/surendran/.config/cmo-studio/browser-profile`, log into LinkedIn (plus any other account), Cmd+Q to quit fully, tell the agent, agent verifies with a feed read. Never store or ask for passwords in chat; never re-auth with anyone else's credentials. If a session 401s mid-run: report `blocked: session expired — re-login needed`, never work around it.
+## Designated browser (No-API Browser Doctrine)
+When an external platform lacks an API, the Principal logs in once via the designated browser profile; agents drive the live DOM thereafter.
+- Profile path configured in workspace environment.
+- Read-only data extraction; no unauthorized automated engagement.
+- If a session expires (401), report `blocked: session expired — re-login needed`.
 
-## The #buildwithai update format (principal house format, Sep 2026 — DEFAULT for studio work)
-When the news is studio progress, the update is a #buildwithai episode, NOT a launch announcement. Directory/review status is one subordinate line, never the hook. Newsletter twin: buildwithai-YYYY-MM-DD.md (reader-first, studio tail ≤3 lines).
-Skeleton: series opener ("For this week's #buildwithai, …") → what it is, plain → easy part / hard part (or one observed texture) → what's next, honestly unfinished → question to the reader → #buildwithai trailing (LinkedIn only; X carries no hashtags).
-Voice anchors (from his training samples, ~/Projects/SMM-Agent/data/training_data.jsonl): "we built" plural; warm peer, imperfect human grammar kept; short paragraphs; links as plain URLs; real names and numbers; zero hype adjectives; never "I'm excited to announce".
-X adaptation: same story compressed to main ≤280 chars (no links, no hashtags) + reply thread for links/doors/caveats.
-LinkedIn adaptation: same story as plain post (his feed posts are plain text, not carousels); links inline as plain URLs; 1 hashtag (#buildwithai) trailing; first-2-lines <210 chars.
-## Voice & structure — principal's model (2026-09-01, from his WebMCP rewrite; use for demo-led launches, NOT for #buildwithai updates)
-Structure: **What it is → Why it matters (the insight) → What I built (with the demo's differentiator) → How to try it (doors) → For builders.**
+## Build-in-Public Update Format
+When sharing company updates, follow the builder update format:
+- Structure: Clear opening ("This week, we built...") → what it does in plain language → hard part / technical obstacle overcome → what's next → open question to practitioners.
+- Ground rules: Direct, honest, real numbers, zero hype adjectives, never "excited to announce".
+- X adaptation: Main post ≤280 chars (no links) + reply thread with link and technical caveats.
+- LinkedIn: Carousel slides or concise text post with links in the first comment.
+
+## Voice & Structure
+Structure: **What it is → Why it matters (the insight) → What we built (with the differentiator) → How to try it (doors) → For builders.**
 1. Analogy is the PRIMARY tool in social writing when it compresses the concept (restaurant/menu). The house no-analogy law applies to ANALYTICAL artifacts only (briefs, RCAs). One central analogy per post, carried through.
 2. Explain the CAUSE before the capability: give a model of the world ("a form is a conversation squashed into boxes — a page could not ask questions, so we built boxes"), then show the limit dissolving.
 3. Observed texture over category claims: behaviors someone actually watched ("picks the wrong country code. It invents a phone number, because the field would not let it move on"), not summaries ("guessing").

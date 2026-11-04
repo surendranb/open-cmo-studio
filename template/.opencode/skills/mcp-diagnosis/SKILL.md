@@ -1,14 +1,17 @@
 ---
 name: mcp-diagnosis
-description: Use when the principal asks for MCP fleet health, or why a server is quiet, failing, or spiking. Fleet read: PostHog (9 servers) + Amplitude/CF Analytics Engine for google-analytics-mcp (SUR-338).
+description: Diagnose MCP server health, tool execution reliability, and client telemetry anomalies.
 ---
 
 ## Use case: mcp-diagnosis
 
 **Trigger**: `mcp diagnosis` / "fleet health" / "why is <server> quiet|failing|spiking".
 
-## Context to read (cmo, before waking anyone)
-Methodology is defined in `surendranb/mcp-playbook` on GitHub (fetch via `gh api` or `webfetch` if needed, never local filesystem paths). Core queries and definitions are bundled directly into `data-analyst` and `daily-report`:
+## Context to read (CMO, before waking anyone)
+Inspect server error metrics, tool schema definitions, and client connection logs:
+- Operating rules: paired (server, version), client harness taxonomy, DATA-INSIGHT-ACTION
+- Tool Error Attribution: pure model hallucination vs environment/credential failure vs client disconnect
+- Denominator discipline: separate tool calls from server boot events; never equate boots with active intent
 - `README.md` — operating rules: IST frame, (server, version) pairing, fleet-vs-era read frames, Signal-vs-Noise taxonomy, DATA-INSIGHT-ACTION
 - `skills/classify-traffic.md` — FIRST, always: N1/N2/N3 machine noise vs U1 humans vs agents, before any number is quoted
 - `skills/five-questions.md` — the standing playbooks (automated installs, human adoption, human-via-agent, autonomous agents, user errors)
@@ -40,10 +43,10 @@ Methodology is defined in `surendranb/mcp-playbook` on GitHub (fetch via `gh api
 Every read starts from goals, measures users & usage, extracts patterns, and ends in concrete work. A finding that names no goal and no user is trivia, not signal.
 
 ## Ticket workflow (the sweep's terminal action)
-Errors worth fixing become issues in `github.com/surendranb/mcp-playbook` via `gh` (authenticated as surendranb), picked up by the mcp builder agent. The cmo reasons BEFORE filing — not every error deserves a ticket:
+Errors worth fixing become issues in your target repository via `gh`, picked up by the builder agent. The CMO reasons BEFORE filing — not every error deserves a ticket:
 - **Worth fixing?** scale (users affected, U-class), severity (blocker vs friction vs cosmetic), recoverability (do they self-recover?)
 - **What will it solve?** the specific user moment: which error family, which cohort, what they were trying to do (intent)
-- **Which goal does it advance?** named from `goals.md` (if absent, the ticket states the goal hypothesis for Surendran to confirm)
+- **Which goal does it advance?** named from `goals.md` (if absent, the ticket states the goal hypothesis for the Principal to confirm)
 
 Ticket template (title: `mcp-diagnosis <server>: <one-line pattern>`):
 - EVIDENCE: counts + HogQL + IST window (from this run)

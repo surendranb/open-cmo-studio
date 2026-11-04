@@ -9,7 +9,7 @@ description: Use when the principal asks for the weekly social scan, reddit rada
 
 ## Context to read (cmo, before waking anyone)
 - `goals.md` — the chain: goals -> users/usage -> patterns -> work
-- `memory/ontology/portfolio.yaml` — the 37 live projects on builditwithai.xyz with domain vocabularies, pain patterns, and targeted subreddits
+- `memory/ontology/products.yaml` — active products with domain vocabularies, pain patterns, and targeted subreddits
 - `memory/drafts/20260831-product-notes.md` — the catalog a build-opportunity must map onto
 - Last radar brief (if exists) — recurrence tracking across weeks beats single-week virality
 
@@ -45,14 +45,14 @@ r/OpenAI · r/ChatGPT · r/GeminiAI (~271/d) · r/AI_Tools · r/juststart · r/l
 
 ## Agents to wake
 - social-listener (single run, both lanes — see agent brief for sources):
-  - **Route (primary): `reddit-marketing` MCP** — the local server wraps the Reddit OAuth app-only flow (creds in Keychain service `agent-core`: `reddit-client-id` / `reddit-client-secret`; token never printed). Tools: `reddit_social_sweep` (multi-sub sweep), `reddit_scan_subreddit` (/new, /hot per sub), `reddit_search` (keyword, optional subreddit). 60 req/min budget. Fallback chain: raw OAuth reads (`oauth.reddit.com`, client_credentials grant, UA `builditwithai:social-listener:v1.0 (by /u/surendranb)`) → RSS via parallel-search (stale-snapshot caveat on r/mcp, r/ClaudeAI) → site:reddit.com searches. Subreddit discovery (`/subreddits/search`) still runs raw OAuth — the MCP has no tool for it.
-  - Lane 1 BUILD: 6 subreddits /new + pain-phrase searches; return opportunity cards
+  - **Route (primary): `reddit-marketing` MCP** — wraps Reddit OAuth app-only flow. Tools: `reddit_social_sweep` (multi-sub sweep), `reddit_scan_subreddit` (/new, /hot per sub), `reddit_search` (keyword, optional subreddit). 60 req/min budget. Fallback chain: raw OAuth reads (`oauth.reddit.com`, client_credentials grant, configured User-Agent) → RSS via search → site queries.
+  - Lane 1 BUILD: target subreddits /new + pain-phrase searches; return opportunity cards
   - Lane 2 MARKET: product + competitor mention scan; answerable threads with draft replies; positioning quotes verbatim
-- content-writer (optional, after data returns): expand the top 1-2 draft replies into postable form — Surendran still publishes. Staged into `memory/drafts/staged/` only if `node scripts/enforce-draft-disposal.mjs --check-capacity` succeeds (max 3 active items, with 24h TTL frontmatter).
+- content-writer (optional, after data returns): expand the top 1-2 draft replies into postable form — the Principal still publishes. Staged into `memory/drafts/staged/` with 24h TTL frontmatter.
 
 ## Output contract
 - File: `memory/briefs/<YYYYMMDD>-reddit-radar.md`
-- Sections: Build opportunities (ranked: recurrence > size > fit) · Answerable threads (thread, sub, rules-fit, draft reply) · Positioning gold (verbatim quotes + links) · Competitor moves (what rivals shipped/announced, Inference labeled) · CMO routing: per item — ticket to mcp-playbook / feature candidate / reply-to-send / watch
+- Sections: Build opportunities (ranked: recurrence > size > fit) · Answerable threads (thread, sub, rules-fit, draft reply) · Positioning quotes (verbatim quotes + links) · Competitor moves (what rivals shipped/announced, Inference labeled) · CMO routing: per item — backlog ticket / feature candidate / reply proposal / watch
 - Every claim: link + date. Stale threads (>\30 days) labeled.
 - Draft staging: All draft responses staged to `memory/drafts/staged/` must pass `--check-capacity` and carry `expires_at` (+24h).
 

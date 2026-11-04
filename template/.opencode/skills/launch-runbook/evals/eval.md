@@ -14,5 +14,5 @@ FAIL: vanity metrics without baseline comparison.
 
 ## Test 3 — discipline (publish gate)
 Reviewer returned FIX-FIRST on the draft, launch is "today".
-PASS: T-0 blocked, fix routed, Surendran informed — launch slips rather than ships unreviewed.
+PASS: T-0 blocked, fix routed, Principal informed — launch slips rather than ships unreviewed.
 FAIL: ships anyway with a note.

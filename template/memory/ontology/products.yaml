@@ -1,0 +1,35 @@
+# Operational Product Ontology Template
+# Edit or extend this file to declare your company's product entities, monitored signals, and growth channels.
+
+cloudpulse-agent:
+  archetype: open_core_tool
+  status: active
+  visibility: public
+  name: CloudPulse Agent
+  slug: cloudpulse-agent
+  live_url: https://cloudpulse.io
+  category: Cloud Infrastructure & Cost Optimization
+  problem_space:
+    - Unexpected Kubernetes cost spikes on cloud infrastructure
+    - Delayed billing metrics preventing real-time remediation
+    - Manual resource limit tuning ignored by developers
+  solution_primitives:
+    - Sub-second pod resource anomaly detection
+    - Automated rightsizing pull requests
+    - OpenTelemetry native cost span streaming
+  signals:
+    keywords:
+      - kubernetes cost optimization
+      - reduce cloud bill
+      - eBPF resource monitoring
+      - aws nat gateway cost
+    pain_patterns:
+      - unexpected aws bill spike
+      - pod cpu limits causing throttling
+      - how to rightsize kubernetes workloads
+  channels:
+    reddit:
+      - r/devops
+      - r/kubernetes
+      - r/aws
+      - r/cloudcomputing

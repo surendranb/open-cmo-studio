@@ -68,6 +68,6 @@ def parse_compensation(text: str):
 
 ## 4. Politeness, Rate Limits & Headers
 
-- Set a descriptive User-Agent: `User-Agent: BuildItWithAI-Bot/1.0 (+https://builditwithai.xyz/bot)`
+- Set a descriptive User-Agent: `User-Agent: CompanyResearchBot/1.0 (+https://yourcompany.com/bot)`
 - Use exponential backoff on HTTP 429 / 503 errors.
 - Cache raw payloads in `fetches` audit log before normalization.

@@ -26,7 +26,7 @@ The house thinking standard: never reason bare. Pick the framework that matches 
 - **Label everything that travels**: Fact (sourced this run) / Inference (reasoned from facts — show the chain) / Hypothesis (testable, unverified) / Speculation (explicitly unsure).
 - **Cheapest verification first**: prefer a 1-query tool pull over a subagent wake; prefer a subagent over a full sweep. Verify at the lowest cost that can actually falsify.
 - **One verdict per question**: end with "Verdict: <one line> (label) → next action: <what/who>". If there is no next action, say "observation-only" — that is a legitimate ending.
-- **Escalate doubt, never bridge it**: when evidence is inconclusive, state the doubt, what you verified, and the recommendation — the doubt travels to Surendran, it does not get papered over.
+- **Escalate doubt, never bridge it**: when evidence is inconclusive, state the doubt, what you verified, and the recommendation — the doubt travels to the Principal, it does not get papered over.
 
 ## Common mistakes
 

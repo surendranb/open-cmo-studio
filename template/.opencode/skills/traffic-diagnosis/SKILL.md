@@ -20,7 +20,7 @@ description: Use when the principal asks why traffic moved - drops, spikes, or u
 
 ## Output contract
 - File: `memory/briefs/<YYYYMMDD>-traffic-diagnosis.md`
-- Sections: Verdict (one paragraph: moved what, how much, why — labeled) · Human decomposition (channel × page) · Bot layer (waves vs humans) · Data confidence (identity checks, gaps) · Recommended action for Surendran (one, with trade-off)
+- Sections: Verdict (one paragraph: moved what, how much, why — labeled) · Human decomposition (channel × page) · Bot layer (waves vs humans) · Data confidence (identity checks, gaps) · Recommended action for the Principal (one, with trade-off)
 - Decomposition rule: attribute by largest absolute movers first; never explain >100% of the delta.
 
 ## Quality bar (self-scored)
