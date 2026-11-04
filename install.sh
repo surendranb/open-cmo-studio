@@ -119,9 +119,9 @@ launchctl load "${HINDSIGHT_PLIST}"
 echo -e "  ${GREEN}✓${NC} Hindsight daemon registered via launchd on port 8888."
 
 # ------------------------------------------------------------------------------
-# 4. Workspace Scaffolding
+# 4. Workspace Scaffolding & App Integration
 # ------------------------------------------------------------------------------
-echo -e "${BOLD}[4/5] Initializing Local Workspace...${NC}"
+echo -e "${BOLD}[4/5] Initializing Local Workspace & App...${NC}"
 if [ ! -d "${TARGET_DIR}" ]; then
   mkdir -p "${TARGET_DIR}"
   if [ -d "${SCRIPT_DIR}/template" ]; then
@@ -133,6 +133,28 @@ if [ ! -d "${TARGET_DIR}" ]; then
 else
   echo -e "  ${YELLOW}→${NC} Workspace already exists at ${TARGET_DIR} (preserving state)."
 fi
+
+# Link Application bundle if present
+if [ -d "/Applications/CMO Studio.app" ] && [ ! -e "/Applications/Open CMO Studio.app" ]; then
+  ln -sf "/Applications/CMO Studio.app" "/Applications/Open CMO Studio.app" 2>/dev/null || true
+  echo -e "  ${GREEN}✓${NC} Open CMO Studio.app registered in /Applications"
+fi
+
+# Install global CLI helper ~/.local/bin/open-cmo-studio
+mkdir -p "${HOME}/.local/bin"
+cat <<'CLI_EOF' > "${HOME}/.local/bin/open-cmo-studio"
+#!/usr/bin/env bash
+TARGET_DIR="${HOME}/Documents/Open CMO Studio"
+if [ -d "/Applications/Open CMO Studio.app" ]; then
+  open -a "/Applications/Open CMO Studio.app" --args "${TARGET_DIR}"
+elif command -v opencode >/dev/null 2>&1; then
+  cd "${TARGET_DIR}" && exec opencode
+else
+  echo "Open CMO Studio workspace ready at: ${TARGET_DIR}"
+fi
+CLI_EOF
+chmod +x "${HOME}/.local/bin/open-cmo-studio"
+echo -e "  ${GREEN}✓${NC} CLI shortcut 'open-cmo-studio' installed to ~/.local/bin"
 
 # ------------------------------------------------------------------------------
 # 5. Health Verification
