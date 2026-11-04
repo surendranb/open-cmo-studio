@@ -134,12 +134,6 @@ else
   echo -e "  ${YELLOW}→${NC} Workspace already exists at ${TARGET_DIR} (preserving state)."
 fi
 
-# Link Application bundle if present
-if [ -d "/Applications/CMO Studio.app" ] && [ ! -e "/Applications/Open CMO Studio.app" ]; then
-  ln -sf "/Applications/CMO Studio.app" "/Applications/Open CMO Studio.app" 2>/dev/null || true
-  echo -e "  ${GREEN}✓${NC} Open CMO Studio.app registered in /Applications"
-fi
-
 # Install global CLI helper ~/.local/bin/open-cmo-studio
 mkdir -p "${HOME}/.local/bin"
 cat <<'CLI_EOF' > "${HOME}/.local/bin/open-cmo-studio"
@@ -151,6 +145,7 @@ elif command -v opencode >/dev/null 2>&1; then
   cd "${TARGET_DIR}" && exec opencode
 else
   echo "Open CMO Studio workspace ready at: ${TARGET_DIR}"
+  echo "Run 'cd \"${TARGET_DIR}\" && opencode' to launch."
 fi
 CLI_EOF
 chmod +x "${HOME}/.local/bin/open-cmo-studio"
