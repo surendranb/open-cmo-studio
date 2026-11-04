@@ -1,0 +1,7 @@
+{
+  "product": "0.3.0",
+  "engine": "2.2.0",
+  "channel": "stable",
+  "name": "open-cmo-studio",
+  "repository": "https://github.com/surendranb/open-cmo-studio"
+}

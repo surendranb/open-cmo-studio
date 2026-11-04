@@ -1,0 +1,54 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "experimental": {
+    "openTelemetry": true
+  },
+  "plugin": [
+    "opencode-scheduler",
+    [
+      "@vectorize-io/opencode-hindsight",
+      {
+        "hindsightApiUrl": "http://127.0.0.1:8888",
+        "bankId": "cmo-studio",
+        "autoRecall": true,
+        "autoRetain": true,
+        "recallBudget": "mid"
+      }
+    ]
+  ],
+  "skills": {
+    "paths": [
+      "./.opencode/skills"
+    ]
+  },
+  "permission": {
+    "external_directory": "allow",
+    "bash": {
+      "*": "allow",
+      "git push*": "deny",
+      "sudo*": "deny"
+    },
+    "webfetch": "allow"
+  },
+  "mcp": {
+    "reddit-marketing": {
+      "type": "local",
+      "command": [
+        "node",
+        "./.opencode/servers/reddit-server.mjs"
+      ],
+      "enabled": true
+    },
+    "google-analytics": {
+      "type": "remote",
+      "url": "https://ga4mcp.builditwithai.xyz/mcp",
+      "enabled": true
+    },
+    "google-search-console": {
+      "type": "remote",
+      "url": "https://gscmcp.builditwithai.xyz/mcp",
+      "enabled": true
+    }
+  }
+}

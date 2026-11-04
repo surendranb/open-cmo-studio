@@ -1,0 +1,156 @@
+# Studio-CMO Operational Ontology Specification
+# Schema Architecture: Palantir AIP Object/Link/Action Standard
+# Purpose: Governed domain entities, typed relationships, and atomic mutation funnels for the agent fleet.
+
+version: "1.0"
+namespace: "studio_cmo"
+
+object_types:
+  Product:
+    table: "products"
+    primary_key: "product_slug"
+    urn_pattern: "urn:studio:product:{product_slug}"
+    properties:
+      name: { type: "string", description: "Display name of product or tool" }
+      category: { type: "string", description: "Market category" }
+      archetype: { type: "string", enum: ["mcp_fleet", "web_property", "wordpress_plugin", "wip", "native_private"], description: "Operational archetype and measurement cadence" }
+      repository_url: { type: "string", description: "Source code repository URL" }
+      live_url: { type: "string", description: "Production URL" }
+      status: { type: "string", enum: ["active", "wip", "incubating", "archived", "private"], default: "active" }
+      visibility: { type: "string", enum: ["private", "listed-stub", "public"], default: "public", description: "Public door vs stub vs hidden (SUR-370)" }
+      telemetry_cadence: { type: "string", enum: ["daily_workhorse", "episodic_7d", "web_traffic", "light_telemetry_local", "untracked_by_design"], default: "episodic_7d" }
+      last_health_check: { type: "string", description: "ISO timestamp of last health run" }
+    links:
+      competitors:
+        target: "Competitor"
+        cardinality: "one_to_many"
+        foreign_key: "target_product_slug"
+        inverse: "targets_product"
+      signals:
+        target: "Signal"
+        cardinality: "one_to_many"
+        foreign_key: "product_slug"
+        inverse: "associated_product"
+      telemetry:
+        target: "TelemetrySnapshot"
+        cardinality: "one_to_many"
+        foreign_key: "product_slug"
+        inverse: "for_product"
+      pain_patterns:
+        target: "PainPattern"
+        cardinality: "many_to_many"
+        predicate: "solves"
+      feature_primitives:
+        target: "FeaturePrimitive"
+        cardinality: "one_to_many"
+        predicate: "manifests_primitive"
+
+  Competitor:
+    table: "competitors"
+    primary_key: "competitor_id"
+    urn_pattern: "urn:studio:competitor:{competitor_id}"
+    properties:
+      name: { type: "string", description: "Competitor brand name" }
+      domain: { type: "string", description: "Web domain" }
+      category: { type: "string", description: "Market category" }
+      target_product_slug: { type: "string", description: "Our competing product slug" }
+      pricing_model: { type: "string", description: "Pricing tier/structure" }
+      threat_level: { type: "string", enum: ["LOW", "MEDIUM", "HIGH", "CRITICAL"] }
+      latest_changelog: { type: "string", description: "Summary of recent product changes" }
+      last_crawled_at: { type: "string", description: "ISO timestamp of last scan" }
+    links:
+      competing_product:
+        target: "Product"
+        cardinality: "many_to_one"
+        foreign_key: "target_product_slug"
+
+  Signal:
+    table: "signals"
+    primary_key: "signal_id"
+    urn_pattern: "urn:studio:signal:{signal_id}"
+    properties:
+      source: { type: "string", description: "Reddit, Twitter/X, HackerNews, GitHub, etc." }
+      channel_ref: { type: "string", description: "Subreddit, tweet permalink, thread URL" }
+      raw_text: { type: "string", description: "Raw signal excerpt or post text" }
+      signal_type: { type: "string", enum: ["PAIN_POINT", "FEATURE_REQUEST", "COMPETITOR_CHURN", "BUZZ"] }
+      product_slug: { type: "string", description: "Matched portfolio product" }
+      ice_impact: { type: "integer", minimum: 1, maximum: 10 }
+      ice_confidence: { type: "integer", minimum: 1, maximum: 10 }
+      ice_ease: { type: "integer", minimum: 1, maximum: 10 }
+      ice_score: { type: "number", description: "Computed as (impact * confidence * ease) / 100" }
+      status: { type: "string", enum: ["NEW", "VALIDATED", "DISMISSED", "PROMOTED"], default: "NEW" }
+      discovered_at: { type: "string", description: "ISO timestamp" }
+    links:
+      product:
+        target: "Product"
+        cardinality: "many_to_one"
+        foreign_key: "product_slug"
+
+  PainPattern:
+    table: "ontology_entities"
+    filter: "entity_type = 'pain_pattern'"
+    primary_key: "slug"
+    urn_pattern: "urn:studio:pain:{slug}"
+    properties:
+      name: { type: "string" }
+      description: { type: "string" }
+
+  FeaturePrimitive:
+    table: "ontology_entities"
+    filter: "entity_type = 'feature_primitive'"
+    primary_key: "slug"
+    urn_pattern: "urn:studio:primitive:{slug}"
+    properties:
+      name: { type: "string" }
+      description: { type: "string" }
+
+action_types:
+  CaptureSignal:
+    description: "Governed action to record and rank a market signal discovered by social-listener or cmo"
+    parameters:
+      source: { type: "string", required: true }
+      channel_ref: { type: "string", required: false }
+      raw_text: { type: "string", required: true }
+      signal_type: { type: "string", required: true, enum: ["PAIN_POINT", "FEATURE_REQUEST", "COMPETITOR_CHURN", "BUZZ"] }
+      product_slug: { type: "string", required: true }
+      ice_impact: { type: "integer", required: true, minimum: 1, maximum: 10 }
+      ice_confidence: { type: "integer", required: true, minimum: 1, maximum: 10 }
+      ice_ease: { type: "integer", required: true, minimum: 1, maximum: 10 }
+    validations:
+      - check: "EXISTS(SELECT 1 FROM products WHERE product_slug = :product_slug)"
+        error: "Product slug does not exist in portfolio."
+    mutations:
+      - target_table: "signals"
+        operation: "INSERT"
+        compute:
+          ice_score: "(:ice_impact * :ice_confidence * :ice_ease) / 100.0"
+          signal_id: "'sig_' || lower(hex(randomblob(8)))"
+          discovered_at: "datetime('now')"
+    emits:
+      event_type: "signal_discovered"
+      scope: "market_intelligence"
+      payload_fields: ["signal_id", "product_slug", "ice_score", "signal_type"]
+
+  UpsertCompetitorObservation:
+    description: "Governed action for competitor-watcher to update competitor telemetry and positioning"
+    parameters:
+      competitor_id: { type: "string", required: true }
+      name: { type: "string", required: true }
+      domain: { type: "string", required: true }
+      category: { type: "string", required: true }
+      target_product_slug: { type: "string", required: true }
+      threat_level: { type: "string", required: true, enum: ["LOW", "MEDIUM", "HIGH", "CRITICAL"] }
+      latest_changelog: { type: "string", required: false }
+    validations:
+      - check: "EXISTS(SELECT 1 FROM products WHERE product_slug = :target_product_slug)"
+        error: "Target product slug does not exist in portfolio."
+    mutations:
+      - target_table: "competitors"
+        operation: "UPSERT"
+        conflict_target: "competitor_id"
+        compute:
+          last_crawled_at: "datetime('now')"
+    emits:
+      event_type: "competitor_crawled"
+      scope: "competitive_intelligence"
+      payload_fields: ["competitor_id", "threat_level", "target_product_slug"]

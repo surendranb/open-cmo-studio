@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+logs/
+tmp/
+out/
+dist/
+
+# Local workspace memory runtime
+memory/daily/*/artifacts/raw/
+.env
+.env.local
