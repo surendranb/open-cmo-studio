@@ -1,9 +1,40 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "name": "open-cmo-studio-template",
+  "model": "meta-llama/llama-3.3-70b-instruct",
   "instructions": [
     "AGENTS.md"
   ],
+  "experimental": {
+    "openTelemetry": true
+  },
+  "plugin": [
+    "opencode-scheduler",
+    [
+      "@vectorize-io/opencode-hindsight",
+      {
+        "hindsightApiUrl": "http://127.0.0.1:8888",
+        "bankId": "open-cmo-studio",
+        "autoRecall": true,
+        "autoRetain": true,
+        "recallBudget": "mid"
+      }
+    ]
+  ],
+  "skills": {
+    "paths": [
+      "./.opencode/skills"
+    ]
+  },
+  "permission": {
+    "external_directory": "allow",
+    "bash": {
+      "*": "allow",
+      "git push*": "deny",
+      "sudo*": "deny"
+    },
+    "webfetch": "allow"
+  },
   "agent": {
     "cmo": {
       "mode": "primary",

@@ -87,6 +87,12 @@ echo -e "${BOLD}[3/5] Setting up Vectorize Hindsight (Port 8888)...${NC}"
 if curl -s -o /dev/null -w "%{http_code}" http://localhost:8888 2>/dev/null | grep -qE "200|302|404"; then
   echo -e "  ${GREEN}✓${NC} Hindsight is already active on port 8888 (preserving existing daemon)."
 else
+  if ! uv tool list 2>/dev/null | grep -q "hindsight"; then
+    echo "Installing hindsight via uv..."
+    uv tool install hindsight-all || pip3 install --user hindsight-all || true
+  fi
+
+  HINDSIGHT_BIN="$(which hindsight 2>/dev/null || echo "${HOME}/.local/bin/hindsight")"
   HINDSIGHT_PLIST="${LAUNCH_AGENTS_DIR}/com.opencmostudio.hindsight.plist"
 
   cat <<EOF > "${HINDSIGHT_PLIST}"
@@ -98,10 +104,8 @@ else
     <string>com.opencmostudio.hindsight</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/bin/env</string>
-        <string>python3</string>
-        <string>-m</string>
-        <string>http.server</string>
+        <string>${HINDSIGHT_BIN}</string>
+        <string>--port</string>
         <string>8888</string>
     </array>
     <key>RunAtLoad</key>
@@ -115,10 +119,6 @@ else
 </dict>
 </plist>
 EOF
-
-  if command -v hindsight >/dev/null 2>&1; then
-    sed -i '' "s|python3.*8888|$(which hindsight) --port 8888|g" "${HINDSIGHT_PLIST}"
-  fi
 
   launchctl unload "${HINDSIGHT_PLIST}" 2>/dev/null || true
   launchctl load "${HINDSIGHT_PLIST}"
@@ -153,6 +153,10 @@ mkdir -p "${HOME}/.local/bin"
 cat <<'CLI_EOF' > "${HOME}/.local/bin/open-cmo-studio"
 #!/usr/bin/env bash
 TARGET_DIR="${HOME}/Documents/Open CMO Studio"
+export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:6006"
+export OTEL_SERVICE_NAME="open-cmo-studio"
+export OTEL_RESOURCE_ATTRIBUTES="openinference.project.name=open-cmo-studio,service.name=open-cmo-studio"
+
 if [ -d "/Applications/Open CMO Studio.app" ]; then
   open -a "/Applications/Open CMO Studio.app" --args "${TARGET_DIR}"
 elif command -v opencode >/dev/null 2>&1; then
