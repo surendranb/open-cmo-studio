@@ -3,7 +3,24 @@
 **Platform**: Cerebral Valley ([cerebralvalley.ai/e/meta-ai-developer-hackathon](https://cerebralvalley.ai/e/meta-ai-developer-hackathon))  
 **Prize Pool**: $1,000,000  
 **Deadline**: November 4–5, 2026  
-**Repository**: [github.com/surendranb/open-cmo-studio](https://github.com/surendranb/open-cmo-studio)
+**Repository**: [github.com/surendranb/open-cmo-studio](https://github.com/surendranb/open-cmo-studio)  
+**Demo Video URL**: [Insert your 2-3 minute YouTube or Loom link here]
+
+---
+
+## Submission Form Fields (Turnkey Copy-Paste)
+
+### 1. Project Title
+`Open CMO Studio`
+
+### 2. Elevator Pitch (One-Liner / < 200 characters)
+`The open-source, local-first AI marketing workspace for macOS. 7 specialized Llama agents, native OTel observability, and persistent memory on Apple Silicon.`
+
+### 3. Submission Track / Category
+`Agentic AI Workspaces / Developer Tools & Enterprise Productivity`
+
+### 4. Built With (Technologies & Models)
+`Meta Llama 3.3 (70B Instruct), Meta Llama 3.2 Vision, Llama Guard, Arize Phoenix (OTel), Vectorize Hindsight, Model Context Protocol (MCP), TypeScript, Python, macOS launchd`
 
 ---
 
