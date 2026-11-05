@@ -1,7 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "name": "open-cmo-studio-template",
-  "model": "meta-llama/llama-3.3-70b-instruct",
   "instructions": [
     "AGENTS.md"
   ],

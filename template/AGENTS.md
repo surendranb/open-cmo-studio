@@ -43,7 +43,7 @@ Before writing code or adding complexity, stop at the first rung that holds:
 - **No abstractions nobody asked for.** Boring over clever. Fewest files possible.
 - **Shortest working diff wins**, but only once you understand the problem. The smallest change in the wrong place is a second bug.
 - **Self-Contained Law**: Capabilities, dependencies, and skills must ship bundled with the app. Never rely on host-machine global configs.
-- **Unified Model Standard**: Powered by Meta Llama (Llama 3.3 70B Instruct for reasoning; Llama 3.2 Vision for teardowns; Llama Guard for safety).
+- **Unified Model Standard**: All agents execute on the user's selected frontier model for the workspace. Dynamic model switching and auto-routing endpoints are disabled to preserve context coherence.
 - **Visual Palette**: Strictly Happy Hues #17 (cream `#fef6e4`, navy `#001858`, pink `#f582ae`, teal `#8bd3dd`). No dark/black themes.
 
 ---

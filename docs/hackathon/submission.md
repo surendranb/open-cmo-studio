@@ -1,116 +1,124 @@
-# Meta Global AI Developer Hackathon 2026 — Official Submission
+# Open CMO Studio — Hackathon Submission
 
-**Platform**: Cerebral Valley ([cerebralvalley.ai/e/meta-ai-developer-hackathon](https://cerebralvalley.ai/e/meta-ai-developer-hackathon))  
-**Prize Pool**: $1,000,000  
-**Deadline**: November 4–5, 2026  
+**Project**: Open CMO Studio  
+**Tagline**: The Production AI Marketing Harness for Modern Leaders and Growth Teams.  
 **Repository**: [github.com/surendranb/open-cmo-studio](https://github.com/surendranb/open-cmo-studio)  
-**Demo Video URL**: [Insert your 2-3 minute YouTube or Loom link here]
+**Demo Video URL**: [Insert 2-3 minute demo video URL]
 
 ---
 
-## Submission Form Fields (Turnkey Copy-Paste)
+## 1. Executive Summary
 
-### 1. Project Title
+**Open CMO Studio** is a unified AI harness that enables marketing leaders, founders, and growth teams to manage their entire marketing operation through fleets of autonomous agents.
+
+Instead of wrestling with disconnected chatbots that suffer from context collapse, hallucinate metrics, and lack production observability, Open CMO Studio delivers a dedicated operational harness equipped with **persistent memory, real-time trace waterfalls, automated quality evaluations, and live tool adapters**.
+
+---
+
+## 2. The Core Problem
+
+Modern marketing leaders face three critical operational bottlenecks when deploying AI:
+
+1. **Context Collapse & Ephemeral Memory**: Generic agents reset every session. They forget company truth, brand positioning, audience nuances, and the results of past A/B tests and campaigns.
+2. **Zero Observability into Multi-Agent Execution**: Teams have no visibility into how agents reason, which tool calls fail, or where latency spikes occur across complex multi-agent workflows.
+3. **No Quality Gates or Regression Evals**: AI marketing copy and data analysis frequently degrade into generic slop or unverified claims because there is no automated evaluation layer auditing agent outputs against brand standards.
+
+---
+
+## 3. The Solution: A Production AI Marketing Harness
+
+Open CMO Studio bridges the gap between raw models and operational marketing execution. It provides an enterprise-grade harness with:
+
+### A. Central Marketing Command Center
+A unified desktop workspace where founders and CMOs set high-level strategy, monitor automated daily rhythms (09:00 standup, 21:00 memory review), and review structured decision memos.
+
+### B. Persistent Experiential Memory (Vectorize Hindsight)
+Integrated long-term memory engine running on port `8888`. Agents automatically retain operational heuristics, experiment outcomes, and user corrections into isolated memory banks, allowing marketing intelligence to compound continuously across days and weeks.
+
+### C. Full-Stack Observability & Traces (Arize Phoenix)
+Embedded OpenTelemetry tracing on port `6006`. Every LLM prompt, agent handoff, subagent delegation, and tool invocation is recorded in interactive trace waterfalls, providing immediate visibility into agent health, execution costs, and latency.
+
+### D. Automated Evals & Quality Gates
+Scheduled trace evaluation pipelines score agent outputs against brand voice rules, factuality standards, and technical accuracy, flagging hallucinations and removing empty buzzwords before publishing.
+
+### E. The 7-Agent Starter Fleet
+- **`cmo`**: Executive strategist; orchestrates agent rosters, aligns execution to quarterly milestones, and delivers concise BLUF memos.
+- **`data-analyst`**: Reconciles telemetry across GA4 and Search Console, performs 5-Whys root cause analysis, and audits conversion funnels.
+- **`social-listener`**: Monitors developer forums and communities for emerging customer pain points; scores commercial intent using ICE frameworks.
+- **`content-writer`**: Drafts high-conviction technical tutorials, product release notes, and long-form guides grounded strictly in verified product capabilities.
+- **`designer`**: Translates messaging into structured visual layouts, architecture diagrams, and high-contrast social cards.
+- **`devops-engineer`**: Automates edge site builds, Cloudflare deployments, and production asset distribution.
+- **`distiller`**: Evaluates daily Phoenix execution traces, audits tool failures, and consolidates operational learnings into persistent Hindsight banks.
+
+### F. 40+ Packaged Marketing Skills
+From A/B testing statistical analysis and technical SEO/AEO optimization to competitive teardowns, premortems, and crisis communications.
+
+---
+
+## 4. Technical Architecture
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        OPEN CMO STUDIO HARNESS                         │
+│                                                                        │
+│   ┌─────────────────────┐   ┌──────────────────────────────────────┐   │
+│   │   Arize Phoenix     │   │         Vectorize Hindsight          │   │
+│   │   OTel Tracing      │   │      Long-Term Memory Engine         │   │
+│   │   Port: 6006        │   │             Port: 8888               │   │
+│   └──────────▲──────────┘   └──────────────────▲───────────────────┘   │
+│              │                                 │                       │
+│              └────────────────┬────────────────┘                       │
+│                               │                                        │
+│                 ┌─────────────▼─────────────┐                          │
+│                 │     Agent Runtime Core    │                          │
+│                 │   (OpenCode Orchestrator) │                          │
+│                 └─────────────┬─────────────┘                          │
+│                               │                                        │
+│   ┌───────────────────────────┴───────────────────────────┐            │
+│   │                   THE 7-AGENT FLEET                   │            │
+│   │  • cmo            • data-analyst   • social-listener  │            │
+│   │  • content-writer • designer       • devops-engineer  │            │
+│   │  • distiller (memory consolidation & trace evals)     │            │
+│   └───────────────────────────┬───────────────────────────┘            │
+│                               │                                        │
+│   ┌───────────────────────────┴───────────────────────────┐            │
+│   │                  LIVE SYSTEM ADAPTERS                 │            │
+│   │  • GA4 / GSC MCP  • Community/Reddit MCP • Playwright │            │
+│   └───────────────────────────────────────────────────────┘            │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 5. Submission Form Fields (Turnkey Copy-Paste)
+
+### Project Title
 `Open CMO Studio`
 
-### 2. Elevator Pitch (One-Liner / < 200 characters)
-`The open-source, local-first AI marketing workspace for macOS. 7 specialized Llama agents, native OTel observability, and persistent memory on Apple Silicon.`
+### Elevator Pitch (< 200 characters)
+`The production AI marketing harness. Orchestrate fleets of specialized agents from one command center with persistent memory, real-time trace waterfalls, and automated quality evals.`
 
-### 3. Submission Track / Category
+### Category / Track
 `Agentic AI Workspaces / Developer Tools & Enterprise Productivity`
 
-### 4. Built With (Technologies & Models)
-`Meta Llama 3.3 (70B Instruct), Meta Llama 3.2 Vision, Llama Guard, Arize Phoenix (OTel), Vectorize Hindsight, Model Context Protocol (MCP), TypeScript, Python, macOS launchd`
+### Technologies Used
+`Agent Runtimes, OpenTelemetry, Arize Phoenix (OTel & Tracing), Vectorize Hindsight (Persistent Memory), Model Context Protocol (MCP), TypeScript, Python`
 
 ---
 
-## 1. Project Overview
+## 6. 3-Minute Product Demo Walkthrough
 
-* **Project Name**: Open CMO Studio
-* **Tagline**: The Open-Source, Local-First AI Marketing Workspace for macOS.
-* **Track / Category**: Agentic AI Workspaces / Enterprise Productivity / Developer Tools
-* **Models Powered**: Meta Llama 3.3 (70B Instruct), Meta Llama 3.2 Vision (11B/90B Multimodal), Llama Guard.
-
----
-
-## 2. Problem Statement
-
-Marketing teams, technical founders, and growth leaders face a severe operational dilemma:
-1. **SaaS Fragment Bloat**: Growth data is scattered across Google Analytics, Search Console, Reddit, and ad platforms, requiring constant manual context switching.
-2. **Context Collapse & Hallucination**: Generic AI chatbots lack persistent memory, forgetting company truth, brand voice, and past experiment learnings from one session to the next.
-3. **Data Privacy & Cloud Lock-in**: Enterprise marketing data and competitive intelligence cannot be sent to unvetted cloud routing middleware.
-
----
-
-## 3. The Solution: Open CMO Studio
-
-**Open CMO Studio** is an out-of-the-box, local-first marketing workspace packaged as a native macOS application. It transforms a single operator into a full executive marketing studio powered by Meta Llama.
-
-### What Makes It Unique:
-1. **Zero Cloud Dependencies**: Runs 100% locally on Apple Silicon with native `launchd` supervision.
-2. **Local Observability & Memory**: Automatically provisions and manages **Arize Phoenix** (port 6006) for OpenTelemetry tracing and **Vectorize Hindsight** (port 8888) for long-term agent experiential learning.
-3. **The 7-Agent Fleet**:
-   - `cmo`: Executive orchestrator and decision strategist.
-   - `social-listener`: Tri-lane Reddit and community opportunity scanner.
-   - `data-analyst`: Deep telemetry reconciliation across GA4, GSC, and edge metrics.
-   - `content-writer`: Technical copywriter aligned to brand voice.
-   - `designer`: Visual asset producer using Happy Hues design palettes.
-   - `devops-engineer`: Automated deployment and DNS management.
-   - `distiller`: Nightly heuristic memory consolidation.
-4. **40+ Packaged Marketing Skills**: From A/B test analysis and technical AEO/SEO to competitor teardowns and crisis communication.
-5. **One-Command Setup**: A single `./install.sh` handles all dependencies, daemon registration, and workspace scaffolding in under 60 seconds.
-
----
-
-## 4. Meta Llama Integration
-
-Open CMO Studio leverages Meta Llama models at every layer of the marketing lifecycle:
-* **Llama 3.3 70B Instruct**: Serves as the primary cognitive engine for the CMO and Data Analyst, executing multi-step reasoning, hypothesis testing, and 5-Whys root-cause attribution.
-* **Llama 3.2 Vision**: Powers visual page teardowns and competitive ad review directly via persistent Chromium CDP sessions.
-* **Llama Guard**: Enforces brand safety and privacy boundaries before data touches persistent memory.
-
----
-
-## 5. Technical Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     Open CMO Studio                         │
-│               Native macOS Application                      │
-└──────────────┬──────────────────────────────┬───────────────┘
-               │                              │
-       ┌───────▼────────┐             ┌───────▼────────┐
-       │ Arize Phoenix  │             │   Vectorize    │
-       │   OTel (6006)  │             │ Hindsight(8888)│
-       └────────────────┘             └────────────────┘
-               ▲                              ▲
-               └──────────────┬───────────────┘
-                              │
-               ┌──────────────┴───────────────┐
-               │    The 7-Agent CMO Fleet     │
-               │   (CMO, Analyst, Listener)   │
-               └──────────────┬───────────────┘
-                              │
-               ┌──────────────┴───────────────┐
-               │      40+ Marketing Skills    │
-               │    + Markdown Memory Wiki    │
-               └──────────────────────────────┘
-```
-
----
-
-## 6. 3-Minute Demo Video Script
-
-* **0:00 - 0:30 (The Hook & Installation)**:
-  - Open terminal on a pristine Mac.
-  - Run `curl -fsSL https://raw.githubusercontent.com/surendranb/open-cmo-studio/main/install.sh | bash`.
-  - Show the 5 green checkmarks: uv installed, Phoenix registered, Hindsight registered, workspace scaffolded.
-* **0:30 - 1:15 (The Workspace & Fleet Overview)**:
-  - Launch `Open CMO Studio.app`.
-  - Inspect the 7 marketing agents and the live Phoenix dashboard at `localhost:6006`.
-* **1:15 - 2:15 (The 09:00 Autonomous Morning Standup)**:
-  - CMO runs the morning routine: `social-listener` pulls real-time Reddit developer pains via MCP, `data-analyst` reconciles traffic anomalies without SQLite database locks.
-  - CMO generates the daily BLUF report with concrete recommendations.
-* **2:15 - 3:00 (Persistent Memory & Distillation)**:
-  - Show Vectorize Hindsight (`localhost:8888`) retaining a corrected marketing heuristic.
-  - Conclude with the open-source mission: local-first marketing autonomy powered by Meta Llama.
+* **0:00 - 0:45 (The Problem & The Harness)**:
+  - Walk through the friction of running marketing with ad-hoc prompts versus an engineered agent harness.
+  - Show the Open CMO Studio workspace: the 7-agent roster, the company truth wiki, and the 40+ packaged skills.
+* **0:45 - 1:45 (Autonomous Execution in Action)**:
+  - Dispatch the CMO to execute a morning growth audit:
+  - `social-listener` detects an emerging customer pain point in online communities.
+  - `data-analyst` reconciles traffic and conversion drop-offs.
+  - CMO delivers a structured BLUF decision memo with concrete action items.
+* **1:45 - 2:30 (Observability & Tracing via Arize Phoenix)**:
+  - Open `http://localhost:6006` to inspect live trace waterfalls.
+  - Show subagent execution spans, tool latency breakdowns, and token tracking.
+* **2:30 - 3:00 (Persistent Experiential Memory via Vectorize Hindsight)**:
+  - Open `http://localhost:8888` to show memory bank auto-retention.
+  - Demonstrate how the `distiller` agent evaluates traces and stores winning heuristics so the team compounds knowledge across sessions.

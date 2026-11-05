@@ -1,66 +1,76 @@
 # Open CMO Studio
 
-> **The Open-Source, Local-First AI Marketing Workspace for macOS.**  
-> Built for the **Meta Global AI Developer Hackathon 2026** on [Cerebral Valley](https://cerebralvalley.ai/e/meta-ai-developer-hackathon). Powered by Meta Llama.
+> **The Production AI Marketing Harness for Modern Leaders and Growth Teams.**  
+> Orchestrate, observe, and scale multi-agent marketing operations from a single unified command center.
 
-[![Meta AI Hackathon 2026](https://img.shields.io/badge/Meta_AI_Hackathon-2026_Submission-001858?style=flat&logo=meta&logoColor=white)](https://cerebralvalley.ai/e/meta-ai-developer-hackathon)
+[![Release](https://img.shields.io/badge/Release-v0.3.0-001858?style=flat&color=001858)](https://github.com/surendranb/open-cmo-studio/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-f582ae.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/Platform-macOS_Apple_Silicon-8bd3dd?color=001858)](https://apple.com)
-[![Status: v0.3.0](https://img.shields.io/badge/Release-v0.3.0-fef6e4?color=001858)](https://github.com/surendranb/open-cmo-studio/releases)
 
 ---
 
-## What is Open CMO Studio?
+## The AI Marketing Command Center
 
-**Open CMO Studio** turns a solo marketer or technical founder into a complete, autonomous 7-agent executive marketing studio.
+**Open CMO Studio** gives marketers, founders, and growth leaders a dedicated operating harness to run their entire marketing organization through autonomous AI agents.
 
-Instead of paying for disjointed cloud SaaS subscriptions or pasting confidential strategy into black-box prompts, Open CMO Studio operates **100% locally on your Mac**:
-* **Zero Cloud Dependencies**: Runs entirely on Apple Silicon.
-* **Integrated Observability**: Bundled **Arize Phoenix** (port 6006) for local OpenTelemetry trace evaluation.
-* **Persistent Heuristic Memory**: Bundled **Vectorize Hindsight** (port 8888) for continuous agent learning across days and weeks.
-* **Standard External MCPs**: Pre-wired adapters for Google Analytics (GA4), Google Search Console (GSC), Reddit, and persistent Chromium browser automation.
+Current AI workflows force teams into disconnected chatbot prompts where agents forget context, hallucinate metrics, and lack production observability. Open CMO Studio provides the full infrastructure stack needed to build, deploy, and manage specialized marketing agents with:
+
+* **Persistent Experiential Memory**: Powered by Vectorize Hindsight, agents retain past experiment outcomes, brand voice calibrations, and domain heuristics across sessions. Knowledge compounds instead of resetting.
+* **Full-Stack Observability & Tracing**: Native OpenTelemetry streaming into Arize Phoenix gives complete visibility into agent reasoning paths, latency waterfalls, and tool execution boundaries.
+* **Continuous Evals & Quality Gates**: Trace evaluation pipelines test agent outputs against brand guidelines and analytical rubrics, preventing silent regressions.
+* **Live System Adapters (MCP)**: First-class Model Context Protocol integration with Google Analytics (GA4), Search Console (GSC), developer communities, and headless browser automation.
+* **Human-Gated Governance**: Built on a dual-regime architecture where the human principal gates durable truth and approves public releases, while the agent fleet operates high-cadence execution in parallel.
 
 ---
 
-## 30-Second Quickstart
+## Quickstart
 
-Run the one-command installer in your macOS terminal:
+Install the complete harness and daemon suite with a single command:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/surendranb/open-cmo-studio/main/install.sh | bash
 ```
 
-### What the installer does:
-1. **Verifies Prerequisites**: Checks Apple Silicon architecture and installs `uv` if needed.
-2. **Registers Arize Phoenix**: Launches local OTel server on port `6006` with automatic `launchd` supervision.
-3. **Registers Vectorize Hindsight**: Launches local memory daemon on port `8888` with automatic `launchd` supervision.
-4. **Scaffolds Workspace**: Initializes your local marketing command center at `~/Documents/Open CMO Studio`.
-5. **Verifies Health**: Runs automated HTTP health checks on ports `6006` and `8888`.
+### What It Provisions:
+1. **The Core Workspace**: Pre-configured agent environment at `~/Documents/Open CMO Studio`.
+2. **Arize Phoenix Engine**: Local OpenTelemetry trace collector and evaluation dashboard on port `6006`.
+3. **Vectorize Hindsight Engine**: Long-term memory server on port `8888`.
+4. **The Starter Fleet**: 7 specialized marketing agents and 40+ production marketing skills.
+
+Launch anytime via the global terminal shortcut `open-cmo-studio` or the native desktop application.
 
 ---
 
-## The 3-Layer Architecture
+## System Architecture
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                        1. CORE APP (Harness)                           │
-│  • Electron Desktop Fork (arm64)      • Single version.json engine    │
-│  • Managed Phoenix OTel (Port 6006)   • Managed Hindsight (Port 8888)  │
-│  • macOS safeStorage Credential Vault • Persistent Chromium CDP Profile│
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │
-                                    ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│                       2. CONTEXT LAYER (Workspace)                     │
-│  • 7 Specialised Marketing Agents    • 40+ Packaged Marketing Skills   │
-│  • External MCPs (GA4, GSC, Reddit)   • Markdown Memory Wiki & Ontology │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │
-                                    ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│                        3. ROUTINES (Rhythms)                           │
-│  • 09:00 Morning Standup Sweep        • Real-Time Tri-Lane Social Scan │
-│  • Campaign Copy & Visual Generation  • 21:00 EOD Memory Distillation  │
+│                        OPEN CMO STUDIO HARNESS                         │
+│                                                                        │
+│   ┌─────────────────────┐   ┌──────────────────────────────────────┐   │
+│   │   Arize Phoenix     │   │         Vectorize Hindsight          │   │
+│   │   OTel Tracing      │   │      Long-Term Memory Engine         │   │
+│   │   Port: 6006        │   │             Port: 8888               │   │
+│   └──────────▲──────────┘   └──────────────────▲───────────────────┘   │
+│              │                                 │                       │
+│              └────────────────┬────────────────┘                       │
+│                               │                                        │
+│                 ┌─────────────▼─────────────┐                          │
+│                 │     Agent Runtime Core    │                          │
+│                 │   (OpenCode Orchestrator) │                          │
+│                 └─────────────┬─────────────┘                          │
+│                               │                                        │
+│   ┌───────────────────────────┴───────────────────────────┐            │
+│   │                   THE 7-AGENT FLEET                   │            │
+│   │  • cmo            • data-analyst   • social-listener  │            │
+│   │  • content-writer • designer       • devops-engineer  │            │
+│   │  • distiller (memory consolidation & trace evals)     │            │
+│   └───────────────────────────┬───────────────────────────┘            │
+│                               │                                        │
+│   ┌───────────────────────────┴───────────────────────────┐            │
+│   │                  LIVE SYSTEM ADAPTERS                 │            │
+│   │  • GA4 / GSC MCP  • Community/Reddit MCP • Playwright │            │
+│   └───────────────────────────────────────────────────────┘            │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -68,50 +78,56 @@ curl -fsSL https://raw.githubusercontent.com/surendranb/open-cmo-studio/main/ins
 
 ## The 7-Agent Fleet
 
-| Agent | Role | Capabilities |
+Open CMO Studio ships with an out-of-the-box roster designed to collaborate under executive direction:
+
+| Agent | Core Function | Operational Scope |
 |---|---|---|
-| **`cmo`** | Executive Strategist | Roster orchestration, goal tracking, BLUF decision memos, cross-agent coordination. |
-| **`social-listener`** | Market & Trend Scout | Tri-lane Reddit and community monitor, pain pattern extraction, ICE opportunity scoring. |
-| **`data-analyst`** | Telemetry & Measurement | 5-Whys root cause analysis, GA4 and GSC telemetry reconciliation, bot crawl audits. |
-| **`content-writer`** | Technical Copywriter | Long-form technical guides, launch announcements, newsletters in authentic builder voice. |
-| **`designer`** | Visual Brand Director | Pixel-calibrated visuals, Happy Hues palettes, SVG diagrams, carousel layouts. |
-| **`devops-engineer`** | Distribution Engineer | Static site builds, Cloudflare edge deployment, automated GitHub release workflows. |
-| **`distiller`** | Memory & Protocol Guard | Nightly look-back review, trace scoring in Phoenix, heuristic consolidation in Hindsight. |
+| **`cmo`** | Executive Orchestrator | Translates business targets into execution contracts; coordinates subagent briefs; delivers daily BLUF decision memos. |
+| **`data-analyst`** | Telemetry & Performance | Reconciles traffic trends across GA4 and Search Console; runs 5-Whys attribution; flags conversion bottlenecks. |
+| **`social-listener`** | Market Intelligence | Monitors developer forums and subreddits for emergent pain points; scores commercial intent using ICE criteria. |
+| **`content-writer`** | Technical Copywriting | Produces long-form guides, technical tutorials, and product updates aligned strictly with verified product capabilities. |
+| **`designer`** | Visual Asset Direction | Generates high-contrast visual cards, architecture diagrams, and carousel layouts with calibrated color systems. |
+| **`devops-engineer`** | Distribution & Edge | Builds static release assets, manages edge deployments (Cloudflare Workers/Pages), and automates release pipelines. |
+| **`distiller`** | Quality & Memory Guard | Audits daily Phoenix traces for tool failures; consolidates operational heuristics into Hindsight memory banks. |
+
+### Building Custom Agents
+Add new agents by declaring their role in `.opencode/agent/<name>.md` and registering their runtime mode in `opencode.json`. Agents automatically inherit the harness's memory, tracing, and skill catalog.
 
 ---
 
-## Packaged Marketing Skills (40+)
+## Enterprise Agent Infrastructure
 
-Open CMO Studio includes a battery of tested engineering-grade marketing skills:
-* **Analytics & Data**: `ab-test-analysis`, `funnel-analysis`, `cohort-analysis`, `metric-reconciliation`, `traffic-diagnosis`.
-* **Strategy & Planning**: `competitive-teardown`, `problem-solving`, `premortem`, `launch-runbook`, `standup`.
-* **Content & Communication**: `business-writing`, `journalism-ap`, `plain-language`, `technical-aeo-seo`, `scott-adams`.
-* **Design & Visuals**: `high-end-visual-design`, `brandkit`, `minimalist-ui`, `illustrator`.
-* **Observability & Health**: `bot-visibility`, `mcp-diagnosis`, `pagespeed`, `5whys`.
+### 1. Persistent Experiential Memory (Hindsight)
+Conventional agents reset between turns. Open CMO Studio integrates Vectorize Hindsight so agents recall past campaign outcomes, channel nuances, and user preferences automatically:
+- **Auto-Retain**: Captures operational milestones and corrections when an agent session concludes.
+- **Dynamic Bank Partitioning**: Keeps memory banks strictly scoped per product, team, or workspace.
+- **Context Injection**: Surfacing relevant past learnings before drafting new campaigns or analyzing anomalies.
 
----
+### 2. Full Observability & Tracing (Phoenix)
+Every LLM call, prompt template, tool interaction, and subagent delegation streams to Arize Phoenix via standard OpenTelemetry spans:
+- **Trace Waterfalls**: Diagnose exact latency bottlenecks across deep multi-agent delegation trees.
+- **Tool Reliability Audits**: Identify failure rates and schema mismatches across local MCP adapters.
+- **Token Economics**: Monitor token consumption across agents and models.
 
-## Operational Rhythms
-
-### 1. 09:00 IST — Morning Standup
-The CMO coordinates `data-analyst` and `social-listener` to pull live data across search queries, edge traffic, and Reddit discussions, generating a 3-bullet BLUF briefing for the human principal.
-
-### 2. Campaign & Asset Sprint
-The fleet coordinates copy, design, and distribution:
-* `social-listener` flags a recurring developer pain.
-* `cmo` frames the positioning angle.
-* `content-writer` drafts the tutorial.
-* `designer` crafts the visual cards.
-
-### 3. 21:00 IST — Nightly Distillation
-The `distiller` agent evaluates all traces in Arize Phoenix, flags tool errors or hallucination anomalies, and stores winning heuristics into Vectorize Hindsight so the fleet grows smarter every day.
+### 3. Automated Evaluations & Quality Gates
+The `distiller` agent runs scheduled evaluations against execution traces:
+- **Hallucination Detection**: Verifies that claims made in drafts link directly to verified files or tool outputs.
+- **Anti-Slop Compliance**: Flags and strips corporate buzzwords, passive prose, and empty claims before publication.
+- **Heuristic Promotion**: Converts repeatedly validated task patterns into permanent skills.
 
 ---
 
-## License & Credits
+## 40+ Packaged Marketing Skills
 
-* License: MIT
-* Derived from the open-source OpenCode Desktop architecture.
-* Observability powered by [Arize Phoenix](https://github.com/Arize-ai/phoenix).
-* Memory persistence powered by [Vectorize Hindsight](https://github.com/vectorize-io/hindsight).
-* Built for the Meta Global AI Developer Hackathon 2026.
+Open CMO Studio comes bundled with a comprehensive skill library covering every growth discipline:
+- **Growth & Measurement**: `ab-test-analysis`, `funnel-analysis`, `cohort-analysis`, `metric-reconciliation`, `traffic-diagnosis`.
+- **Strategy & Execution**: `competitive-teardown`, `problem-solving`, `premortem`, `launch-runbook`, `standup`.
+- **Communication & Positioning**: `business-writing`, `technical-aeo-seo`, `journalism-ap`, `plain-language`, `scott-adams`.
+- **Visuals & Design**: `high-end-visual-design`, `brandkit`, `minimalist-ui`, `illustrator`.
+- **Diagnostics**: `5whys`, `bot-visibility`, `mcp-diagnosis`, `pagespeed`.
+
+---
+
+## License
+
+MIT License. Designed for builders, marketing leaders, and founders scaling autonomous growth.
