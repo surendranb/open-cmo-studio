@@ -1,7 +1,7 @@
 # Open CMO Studio
 
-> **The Production AI Marketing Harness for Modern Leaders and Growth Teams.**  
-> Orchestrate, observe, and scale multi-agent marketing operations from a single unified command center.
+> **Your entire marketing operation from one screen.**  
+> Autonomous AI agents that run your growth and remember what works.
 
 [![Release](https://img.shields.io/badge/Release-v0.3.0-001858?style=flat&color=001858)](https://github.com/surendranb/open-cmo-studio/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-f582ae.svg)](https://opensource.org/licenses/MIT)
@@ -9,30 +9,30 @@
 
 ---
 
-## The AI Marketing Command Center
+## What Open CMO Studio Delivers
 
-**Open CMO Studio** gives marketers, founders, and growth leaders a dedicated operating harness to run their entire marketing organization through autonomous AI agents.
+Open CMO Studio gives founders, marketing leaders, and growth teams a central command center to run their entire marketing operation through autonomous AI agents. 
 
-Current AI workflows force teams into disconnected chatbot prompts where agents forget context, hallucinate metrics, and lack production observability. Open CMO Studio provides the full infrastructure stack needed to build, deploy, and manage specialized marketing agents with:
+You set direction and make the calls. The fleet handles the execution across analytics, community monitoring, technical copy, and visual design.
 
-* **Persistent Experiential Memory**: Powered by Vectorize Hindsight, agents retain past experiment outcomes, brand voice calibrations, and domain heuristics across sessions. Knowledge compounds instead of resetting.
-* **Full-Stack Observability & Tracing**: Native OpenTelemetry streaming into Arize Phoenix gives complete visibility into agent reasoning paths, latency waterfalls, and tool execution boundaries.
-* **Continuous Evals & Quality Gates**: Trace evaluation pipelines test agent outputs against brand guidelines and analytical rubrics, preventing silent regressions.
-* **Live System Adapters (MCP)**: First-class Model Context Protocol integration with Google Analytics (GA4), Search Console (GSC), developer communities, and headless browser automation.
-* **Human-Gated Governance**: Built on a dual-regime architecture where the human principal gates durable truth and approves public releases, while the agent fleet operates high-cadence execution in parallel.
+* **Persistent Team Memory**: Built on Vectorize Hindsight, agents retain past campaign outcomes, brand positioning, and audience reactions across every session. Marketing intelligence compounds over time.
+* **Trace-Level Observability**: Native OpenTelemetry streaming into Arize Phoenix tracks agent reasoning paths, latency waterfalls, and tool execution down to the millisecond.
+* **Continuous Quality Evaluations**: Automated scoring pipelines test copy and data analysis against brand guidelines and factual standards before publication.
+* **Live System Adapters**: Direct Model Context Protocol (MCP) integrations query Google Analytics (GA4), Search Console (GSC), developer communities, and headless browser sessions.
+* **Human-Gated Governance**: Built on deterministic write lanes where agents execute background work, while the human principal gates durable company truth and approves public releases.
 
 ---
 
 ## Quickstart
 
-Install the complete harness and daemon suite with a single command:
+Install the complete harness and daemon suite with one terminal command:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/surendranb/open-cmo-studio/main/install.sh | bash
 ```
 
 ### What It Provisions:
-1. **The Core Workspace**: Pre-configured agent environment at `~/Documents/Open CMO Studio`.
+1. **The Core Workspace**: Pre-configured agent workspace at `~/Documents/Open CMO Studio`.
 2. **Arize Phoenix Engine**: Local OpenTelemetry trace collector and evaluation dashboard on port `6006`.
 3. **Vectorize Hindsight Engine**: Long-term memory server on port `8888`.
 4. **The Starter Fleet**: 7 specialized marketing agents and 40+ production marketing skills.
@@ -87,7 +87,7 @@ Open CMO Studio ships with an out-of-the-box roster designed to collaborate unde
 | **`social-listener`** | Market Intelligence | Monitors developer forums and subreddits for emergent pain points; scores commercial intent using ICE criteria. |
 | **`content-writer`** | Technical Copywriting | Produces long-form guides, technical tutorials, and product updates aligned strictly with verified product capabilities. |
 | **`designer`** | Visual Asset Direction | Generates high-contrast visual cards, architecture diagrams, and carousel layouts with calibrated color systems. |
-| **`devops-engineer`** | Distribution & Edge | Builds static release assets, manages edge deployments (Cloudflare Workers/Pages), and automates release pipelines. |
+| **`devops-engineer`** | Distribution & Edge | Builds static release assets, manages edge deployments, and automates release pipelines. |
 | **`distiller`** | Quality & Memory Guard | Audits daily Phoenix traces for tool failures; consolidates operational heuristics into Hindsight memory banks. |
 
 ### Building Custom Agents
@@ -104,22 +104,22 @@ Conventional agents reset between turns. Open CMO Studio integrates Vectorize Hi
 - **Context Injection**: Surfacing relevant past learnings before drafting new campaigns or analyzing anomalies.
 
 ### 2. Full Observability & Tracing (Phoenix)
-Every LLM call, prompt template, tool interaction, and subagent delegation streams to Arize Phoenix via standard OpenTelemetry spans:
+Every prompt template, tool interaction, and subagent delegation streams to Arize Phoenix via standard OpenTelemetry spans:
 - **Trace Waterfalls**: Diagnose exact latency bottlenecks across deep multi-agent delegation trees.
 - **Tool Reliability Audits**: Identify failure rates and schema mismatches across local MCP adapters.
 - **Token Economics**: Monitor token consumption across agents and models.
 
 ### 3. Automated Evaluations & Quality Gates
-The `distiller` agent runs scheduled evaluations against execution traces:
-- **Hallucination Detection**: Verifies that claims made in drafts link directly to verified files or tool outputs.
-- **Anti-Slop Compliance**: Flags and strips corporate buzzwords, passive prose, and empty claims before publication.
-- **Heuristic Promotion**: Converts repeatedly validated task patterns into permanent skills.
+The `distiller` agent runs scheduled evaluations against execution traces via `scripts/evaluate-traces.mjs`:
+- **Reliability Audits**: Flags unhandled exceptions and tool call timeouts.
+- **Anti-Slop Compliance**: Strips corporate buzzwords, passive prose, and empty claims before publication.
+- **Epistemic Labeling**: Verifies that claims cite ground truth facts (`[Fact: ...]`, `[Inference: ...]`).
 
 ---
 
 ## 40+ Packaged Marketing Skills
 
-Open CMO Studio comes bundled with a comprehensive skill library covering every growth discipline:
+Open CMO Studio comes bundled with an engineering-grade skill library covering every growth discipline:
 - **Growth & Measurement**: `ab-test-analysis`, `funnel-analysis`, `cohort-analysis`, `metric-reconciliation`, `traffic-diagnosis`.
 - **Strategy & Execution**: `competitive-teardown`, `problem-solving`, `premortem`, `launch-runbook`, `standup`.
 - **Communication & Positioning**: `business-writing`, `technical-aeo-seo`, `journalism-ap`, `plain-language`, `scott-adams`.

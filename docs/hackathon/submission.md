@@ -1,61 +1,62 @@
-# Open CMO Studio — Hackathon Submission
+# Meta Global AI Developer Hackathon 2026 — Official Submission
 
+**Platform**: Cerebral Valley ([cerebralvalley.ai/e/meta-ai-developer-hackathon](https://cerebralvalley.ai/e/meta-ai-developer-hackathon))  
+**Track**: Startup Track / Build for Your World (Marketing & Autonomous Growth Operations)  
 **Project**: Open CMO Studio  
-**Tagline**: The Production AI Marketing Harness for Modern Leaders and Growth Teams.  
 **Repository**: [github.com/surendranb/open-cmo-studio](https://github.com/surendranb/open-cmo-studio)  
-**Demo Video URL**: [Insert 2-3 minute demo video URL]
+**Demo Video URL**: [Insert your 2-3 minute YouTube or Loom link here]
 
 ---
 
-## 1. Executive Summary
+## Submission Form Fields (Turnkey Copy-Paste)
 
-**Open CMO Studio** is a unified AI harness that enables marketing leaders, founders, and growth teams to manage their entire marketing operation through fleets of autonomous agents.
+### 1. Project Title
+`Open CMO Studio`
 
-Instead of wrestling with disconnected chatbots that suffer from context collapse, hallucinate metrics, and lack production observability, Open CMO Studio delivers a dedicated operational harness equipped with **persistent memory, real-time trace waterfalls, automated quality evaluations, and live tool adapters**.
+### 2. Elevator Pitch (< 200 characters)
+`The production AI marketing harness. Orchestrate fleets of specialized agents from one command center with persistent memory, real-time trace waterfalls, and automated quality evals.`
 
----
+### 3. Category / Track
+`Startup Track — Build for Your World (Agentic AI Workspaces / Enterprise Productivity)`
 
-## 2. The Core Problem
-
-Modern marketing leaders face three critical operational bottlenecks when deploying AI:
-
-1. **Context Collapse & Ephemeral Memory**: Generic agents reset every session. They forget company truth, brand positioning, audience nuances, and the results of past A/B tests and campaigns.
-2. **Zero Observability into Multi-Agent Execution**: Teams have no visibility into how agents reason, which tool calls fail, or where latency spikes occur across complex multi-agent workflows.
-3. **No Quality Gates or Regression Evals**: AI marketing copy and data analysis frequently degrade into generic slop or unverified claims because there is no automated evaluation layer auditing agent outputs against brand standards.
+### 4. Built With (Technologies & Models)
+`Meta Model API, Meta Llama, Arize Phoenix (OTel & Tracing), Vectorize Hindsight (Persistent Memory), Model Context Protocol (MCP), TypeScript, Python, macOS launchd`
 
 ---
 
-## 3. The Solution: A Production AI Marketing Harness
+## 1. Executive Summary & Impact (30% Rubric Weight)
 
-Open CMO Studio bridges the gap between raw models and operational marketing execution. It provides an enterprise-grade harness with:
+**Open CMO Studio** is a production AI marketing harness that enables marketing leaders, founders, and growth teams to manage their entire marketing operation through fleets of autonomous agents.
 
-### A. Central Marketing Command Center
-A unified desktop workspace where founders and CMOs set high-level strategy, monitor automated daily rhythms (09:00 standup, 21:00 memory review), and review structured decision memos.
-
-### B. Persistent Experiential Memory (Vectorize Hindsight)
-Integrated long-term memory engine running on port `8888`. Agents automatically retain operational heuristics, experiment outcomes, and user corrections into isolated memory banks, allowing marketing intelligence to compound continuously across days and weeks.
-
-### C. Full-Stack Observability & Traces (Arize Phoenix)
-Embedded OpenTelemetry tracing on port `6006`. Every LLM prompt, agent handoff, subagent delegation, and tool invocation is recorded in interactive trace waterfalls, providing immediate visibility into agent health, execution costs, and latency.
-
-### D. Automated Evals & Quality Gates
-Scheduled trace evaluation pipelines score agent outputs against brand voice rules, factuality standards, and technical accuracy, flagging hallucinations and removing empty buzzwords before publishing.
-
-### E. The 7-Agent Starter Fleet
-- **`cmo`**: Executive strategist; orchestrates agent rosters, aligns execution to quarterly milestones, and delivers concise BLUF memos.
-- **`data-analyst`**: Reconciles telemetry across GA4 and Search Console, performs 5-Whys root cause analysis, and audits conversion funnels.
-- **`social-listener`**: Monitors developer forums and communities for emerging customer pain points; scores commercial intent using ICE frameworks.
-- **`content-writer`**: Drafts high-conviction technical tutorials, product release notes, and long-form guides grounded strictly in verified product capabilities.
-- **`designer`**: Translates messaging into structured visual layouts, architecture diagrams, and high-contrast social cards.
-- **`devops-engineer`**: Automates edge site builds, Cloudflare deployments, and production asset distribution.
-- **`distiller`**: Evaluates daily Phoenix execution traces, audits tool failures, and consolidates operational learnings into persistent Hindsight banks.
-
-### F. 40+ Packaged Marketing Skills
-From A/B testing statistical analysis and technical SEO/AEO optimization to competitive teardowns, premortems, and crisis communications.
+Current AI workflows force teams into disconnected chatbot prompts where agents forget past experiments, hallucinate metrics, and lack production observability. Open CMO Studio provides an engineered operational harness that turns a single operator into a fully coordinated marketing organization:
+* **The Central Command Center**: Directs strategy, reviews daily standup briefings, and approves public campaigns from one unified screen.
+* **Persistent Team Memory**: Built on Vectorize Hindsight, agents retain past campaign outcomes, brand positioning, and audience reactions across every session. Marketing intelligence compounds over time.
+* **Trace-Level Observability**: Native OpenTelemetry streaming into Arize Phoenix tracks agent reasoning paths, latency waterfalls, and tool execution down to the millisecond.
+* **Continuous Quality Evaluations**: Automated scoring pipelines test copy and data analysis against brand guidelines and factual standards before publication.
 
 ---
 
-## 4. Technical Architecture
+## 2. Meta AI Tooling & Anti-Wrapper Architecture (25% Rubric Weight)
+
+Open CMO Studio is an engineered multi-agent system, not a prompt wrapper. It deploys Meta's model family across specialized operational workloads:
+
+| Workload | Meta Model / Tooling | Operational Role |
+|---|---|---|
+| **Executive Strategy & Reasoning** | **Meta Model API (Llama 70B)** | Drives `cmo` decision memos and `data-analyst` 5-Whys telemetry attribution. |
+| **Visual & Competitive Review** | **Meta Multimodal / Vision** | Evaluates competitor landing pages and visual ad layouts via persistent browser sessions. |
+| **High-Throughput Community Triage** | **Meta Model API (Fast Inference)** | Filters high-volume forum and community discussions for customer pain patterns. |
+| **Quality & Policy Filtering** | **Llama Guard** | Enforces brand safety and content boundary policies before heuristics commit to memory banks. |
+
+### Anti-Wrapper Proof
+The system contains significant native engineering:
+* **Lifecycle Supervision**: Native daemon manager orchestrating local OTel trace collectors and vector memory stores.
+* **Deterministic Write Lanes**: Separation of human-gated company truth, agent scratch workspaces, and immutable audit logs.
+* **Bidirectional MCP Adapters**: Live connectivity to production analytics (GA4), Search Console, and developer communities.
+* **Trace Scoring Engine**: Custom evaluator (`scripts/evaluate-traces.mjs`) auditing live spans in Arize Phoenix for reliability, buzzword compliance, and epistemic labeling.
+
+---
+
+## 3. Technical Depth & Execution (20% Rubric Weight)
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -88,37 +89,43 @@ From A/B testing statistical analysis and technical SEO/AEO optimization to comp
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
----
-
-## 5. Submission Form Fields (Turnkey Copy-Paste)
-
-### Project Title
-`Open CMO Studio`
-
-### Elevator Pitch (< 200 characters)
-`The production AI marketing harness. Orchestrate fleets of specialized agents from one command center with persistent memory, real-time trace waterfalls, and automated quality evals.`
-
-### Category / Track
-`Agentic AI Workspaces / Developer Tools & Enterprise Productivity`
-
-### Technologies Used
-`Agent Runtimes, OpenTelemetry, Arize Phoenix (OTel & Tracing), Vectorize Hindsight (Persistent Memory), Model Context Protocol (MCP), TypeScript, Python`
+### The 7-Agent Fleet
+1. **`cmo`**: Executive orchestrator; sets execution contracts, prioritizes initiatives, and delivers daily BLUF decision memos.
+2. **`data-analyst`**: Reconciles live GA4 and Search Console telemetry; isolates traffic anomalies and conversion drops.
+3. **`social-listener`**: Scans developer communities; scores commercial intent using ICE criteria.
+4. **`content-writer`**: Drafts high-conviction technical tutorials and release communications grounded in verified features.
+5. **`designer`**: Translates technical messaging into structured visual layouts and high-contrast social cards.
+6. **`devops-engineer`**: Manages static site builds, Cloudflare edge deployments, and release distribution.
+7. **`distiller`**: Evaluates daily Phoenix traces, audits tool failures, and consolidates verified heuristics into Hindsight memory.
 
 ---
 
-## 6. 3-Minute Product Demo Walkthrough
+## 4. 3-Minute Product Demo Walkthrough (25% Rubric Weight)
 
-* **0:00 - 0:45 (The Problem & The Harness)**:
-  - Walk through the friction of running marketing with ad-hoc prompts versus an engineered agent harness.
-  - Show the Open CMO Studio workspace: the 7-agent roster, the company truth wiki, and the 40+ packaged skills.
-* **0:45 - 1:45 (Autonomous Execution in Action)**:
-  - Dispatch the CMO to execute a morning growth audit:
-  - `social-listener` detects an emerging customer pain point in online communities.
-  - `data-analyst` reconciles traffic and conversion drop-offs.
-  - CMO delivers a structured BLUF decision memo with concrete action items.
-* **1:45 - 2:30 (Observability & Tracing via Arize Phoenix)**:
-  - Open `http://localhost:6006` to inspect live trace waterfalls.
-  - Show subagent execution spans, tool latency breakdowns, and token tracking.
-* **2:30 - 3:00 (Persistent Experiential Memory via Vectorize Hindsight)**:
-  - Open `http://localhost:8888` to show memory bank auto-retention.
-  - Demonstrate how the `distiller` agent evaluates traces and stores winning heuristics so the team compounds knowledge across sessions.
+A tight, 180-second storyboard designed to showcase live execution and hit every judging criterion:
+
+| Time | Scene | On-Screen Action & Narration | Rubric Addressed |
+|---|---|---|---|
+| **0:00 – 0:35** | **The Command Center** | Launch Open CMO Studio. Show the workspace at `~/Documents/Open CMO Studio`, the 7-agent roster, and the company truth wiki. *Narrate: "Marketing teams don't need another chatbot. They need an operating harness where specialized agents run their growth stack from one screen."* | **Impact** (Real-world utility) |
+| **0:35 – 1:20** | **Autonomous Fleet in Action** | Trigger the morning standup. Show `cmo` dispatching `social-listener` to pull live community pains and `data-analyst` reconciling traffic drop-offs. CMO outputs a 3-bullet BLUF decision memo with concrete actions. | **Technical Depth** (Multi-agent coordination) |
+| **1:20 – 2:05** | **Trace Observability (Phoenix)** | Open `http://localhost:6006`. Show the live trace waterfall of the standup execution: subagent delegation spans, tool latencies, and token usage. Run `node scripts/evaluate-traces.mjs --score` to show automated reliability and anti-slop scoring. | **Technical Depth & Anti-Wrapper** |
+| **2:05 – 2:45** | **Experiential Memory (Hindsight)** | Open `http://localhost:8888`. Show the `open-cmo-studio` memory bank. Highlight an agent recalling a past audience reaction and auto-retaining a new heuristic. *Narrate: "Knowledge compounds over time. The fleet never makes the same mistake twice."* | **Impact & Architecture** |
+| **2:45 – 3:00** | **Summary & Installation** | Show the 1-command installer: `curl -fsSL https://raw.githubusercontent.com/surendranb/open-cmo-studio/main/install.sh \| bash`. Conclude on the mission: autonomous marketing operations powered by Meta AI. | **Call to Action** |
+
+---
+
+## 5. Quickstart & Verification Instructions for Judges
+
+Judges can verify the entire harness locally on any Apple Silicon Mac:
+
+```bash
+# 1. Run the one-command installer
+curl -fsSL https://raw.githubusercontent.com/surendranb/open-cmo-studio/main/install.sh | bash
+
+# 2. Launch the studio
+open-cmo-studio
+
+# 3. View live observability & memory dashboards
+# Arize Phoenix Tracing: http://localhost:6006
+# Vectorize Hindsight Memory: http://localhost:8888
+```
