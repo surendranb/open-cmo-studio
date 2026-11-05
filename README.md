@@ -1,11 +1,18 @@
-# Open CMO Studio
+<div align="center">
+  <img src="icon.png" width="128" height="128" alt="Open CMO Studio Logo" />
+  <h1>Open CMO Studio</h1>
+  <p><strong>Your entire marketing operation from one screen.</strong></p>
+  <p>Autonomous AI agents that run your growth and remember what works.</p>
 
-> **Your entire marketing operation from one screen.**  
-> Autonomous AI agents that run your growth and remember what works.
-
-[![Release](https://img.shields.io/badge/Release-v0.3.0-001858?style=flat&color=001858)](https://github.com/surendranb/open-cmo-studio/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-f582ae.svg)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-macOS_Apple_Silicon-8bd3dd?color=001858)](https://apple.com)
+  <p>
+    <a href="https://github.com/surendranb/open-cmo-studio/releases/tag/v0.3.0"><img src="https://img.shields.io/badge/Release-v0.3.0-001858?style=flat-square" alt="Release v0.3.0" /></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-f582ae.svg?style=flat-square" alt="License: MIT" /></a>
+    <a href="https://apple.com"><img src="https://img.shields.io/badge/Platform-macOS_Apple_Silicon-8bd3dd?style=flat-square&color=001858" alt="Platform" /></a>
+    <a href="https://cerebralvalley.ai/e/meta-ai-developer-hackathon"><img src="https://img.shields.io/badge/Meta_Model_API-Muse_Spark_1.3-001858?style=flat-square&logo=meta&logoColor=white" alt="Meta Muse Spark 1.3" /></a>
+    <a href="https://github.com/Arize-ai/phoenix"><img src="https://img.shields.io/badge/Observability-Arize_Phoenix-orange?style=flat-square" alt="Arize Phoenix" /></a>
+    <a href="https://github.com/vectorize-io/hindsight"><img src="https://img.shields.io/badge/Memory-Vectorize_Hindsight-blueviolet?style=flat-square" alt="Vectorize Hindsight" /></a>
+  </p>
+</div>
 
 ---
 

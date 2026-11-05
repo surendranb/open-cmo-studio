@@ -20,7 +20,7 @@
 `Startup Track — Build for Your World (Agentic AI Workspaces / Enterprise Productivity)`
 
 ### 4. Built With (Technologies & Models)
-`Meta Model API, Meta Llama, Arize Phoenix (OTel & Tracing), Vectorize Hindsight (Persistent Memory), Model Context Protocol (MCP), TypeScript, Python, macOS launchd`
+`Meta Model API, Meta Muse Spark 1.3, Arize Phoenix (OTel & Tracing), Vectorize Hindsight (Persistent Memory), Model Context Protocol (MCP), TypeScript, Python, macOS launchd`
 
 ---
 
@@ -42,10 +42,10 @@ Open CMO Studio is an engineered multi-agent system, not a prompt wrapper. It de
 
 | Workload | Meta Model / Tooling | Operational Role |
 |---|---|---|
-| **Executive Strategy & Reasoning** | **Meta Model API (Llama 70B)** | Drives `cmo` decision memos and `data-analyst` 5-Whys telemetry attribution. |
-| **Visual & Competitive Review** | **Meta Multimodal / Vision** | Evaluates competitor landing pages and visual ad layouts via persistent browser sessions. |
-| **High-Throughput Community Triage** | **Meta Model API (Fast Inference)** | Filters high-volume forum and community discussions for customer pain patterns. |
-| **Quality & Policy Filtering** | **Llama Guard** | Enforces brand safety and content boundary policies before heuristics commit to memory banks. |
+| **Executive Strategy & Reasoning** | **Meta Muse Spark 1.3** | Drives `cmo` decision memos and `data-analyst` 5-Whys telemetry attribution. |
+| **Visual & Competitive Review** | **Meta Muse Vision** | Evaluates competitor landing pages and visual ad layouts via persistent browser sessions. |
+| **High-Throughput Community Triage** | **Meta Muse Spark (Fast Inference)** | Filters high-volume forum and community discussions for customer pain patterns. |
+| **Quality & Policy Filtering** | **Meta Guard / Policy Engine** | Enforces brand safety and content boundary policies before heuristics commit to memory banks. |
 
 ### Anti-Wrapper Proof
 The system contains significant native engineering:
